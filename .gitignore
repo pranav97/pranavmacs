@@ -1,0 +1,13 @@
+projectile-bookmarks.eld
+transient/
+ac-comphist.dat
+\#init.el\#
+/eshell/
+/recentf
+/.emacs.desktop
+/.projectile
+/auto-save-list/
+/projectile.cache
+/tramp
+/network-security.data
+ido.last

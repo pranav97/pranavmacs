@@ -7,6 +7,8 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+(when (fboundp 'winner-mode)
+    (winner-mode 1))
 ;; this is for xterm to see mouse 
 (xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
@@ -17,19 +19,9 @@
 (auto-save-visited-mode)
 (auto-revert-mode)
 
-;; highlight todos
-;; git commit mode wraps at 80 chars
-(add-hook 'git-commit-mode-hook (lambda() (setq fill-column 80)))
 
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(global-hl-todo-mode)
-(setq hl-todo-keyword-faces
-      '(("TODO"   . "#FF0000")
-        ("FIXME"  . "#FF0000")
-        ("DEBUG"  . "#A020F0")
-        ("GOTCHA" . "#FF4500")
-        ("STUB"   . "#1E90FF")))
 
 ;; stuff like .log files or .out files treated as text mode
 (setq-default major-mode 'text-mode)
@@ -42,27 +34,24 @@
 ;; this is for wrapping
 (add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
 
-
 ;; emacs has built in line numbers relative
 (when (version<= "26.0.50" emacs-version)
   (add-hook 'prog-mode-hook
 	    (lambda ()
-	      (setq display-line-numbers 't))))
+	      (setq display-line-numbers 'relative))))
 
 
 ;; remove some stuff that comes built into emacs
 (setq inhibit-startup-message t) 
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode ) (menu-bar-mode  -1))
-
-;; c mode config
-(setq c-basic-offset 4)
+(toggle-scroll-bar -1) 
+(tool-bar-mode -1) 
+(menu-bar-mode -1)
 
 (use-package xcscope
-  :ensure t
-  :config
-  (cscope-setup))
+	 :ensure t
+	 :defer t
+	 :config
+	 (cscope-setup))
 
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
@@ -78,43 +67,50 @@
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
-  :ensure t
-  :defer t
-  :config
-  (which-key-mode)
-  (which-key-setup-minibuffer))
+    :ensure t
+    :defer t
+    :config
+    (which-key-mode)
+    (which-key-setup-minibuffer))
+
+
 
 (use-package helm-config
-  :config
-  (helm-mode 1)
-  (use-package helm-projectile
+    :ensure t
     :config
-    (helm-projectile-on)))
+    (helm-mode 1)
+    (use-package helm-projectile
+        :ensure t
+	:config
+	(helm-projectile-on)))
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags :ensure t
-  :config
-  (add-hook 'c-mode-hook 'helm-gtags-mode)
-  (add-hook 'c++-mode-hook 'helm-gtags-mode)
-  (add-hook 'asm-mode-hook 'helm-gtags-mode)
-  (custom-set-variables
-   '(helm-gtags-path-style 'relative)
-   '(helm-gtags-ignore-case t)
-   '(helm-gtags-auto-update t)))
+    :config
+    (add-hook 'c-mode-hook 'helm-gtags-mode)
+    (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    (add-hook 'asm-mode-hook 'helm-gtags-mode)
+    (custom-set-variables
+	'(helm-gtags-path-style 'relative)
+	'(helm-gtags-ignore-case t)
+	'(helm-gtags-auto-update t)))
 
 
 
 (use-package winum
-  :config
-  (setq winum-auto-setup-mode-line nil)
-  (winum-mode))
+    :defer t
+    :ensure t
+    :config
+    (setq winum-auto-setup-mode-line nil)
+    (winum-mode))
 
 
 
 (use-package spaceline
   :ensure t
+  :defer t
   :config 
-  
+ 
 
   (use-package spaceline-config
     :config
@@ -123,21 +119,19 @@
     (spaceline-toggle-minor-modes-off)
     (spaceline-toggle-buffer-encoding-off)
     (spaceline-toggle-buffer-encoding-abbrev-off)
-    (setq powerline-default-separator 'rounded)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
-
-
+    (setq powerline-default-separator 'rounded) (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
 ;; themes
+
 (use-package ample-theme
-  :defer t
-  :ensure t
-  :init (progn
-	  (load-theme 'ample t t)
-	  (load-theme 'ample-flat t t)
-	  (load-theme 'ample-light t t)
-	  (enable-theme 'ample)
-	  (custom-theme-set-faces 'ample
-				  `(region ((t :background "#00004d"))))))
+   :defer t
+   :ensure t
+   :init (progn
+ 	    (load-theme 'ample t t)
+ 	    (load-theme 'ample-flat t t)
+ 	    (load-theme 'ample-light t t)
+ 	    (enable-theme 'ample)
+ 	    (custom-theme-set-faces 'ample
+ 		`(region ((t :background "#5c2556"))))))
 
 
 (use-package rainbow-delimiters
@@ -145,18 +139,21 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
+
 (use-package git-gutter
   :ensure t
+  :defer t
   :config
   (global-git-gutter-mode 1))
-
+  
 
 ;; this is the minibuffer stuff, the very last line on this buffer 
 (use-package ido
-  :ensure t
-  :config 
-  (ido-mode t)
-  (setq ido-enable-flex-matching t))
+    :ensure t
+    :defer t
+    :config 
+    (ido-mode t)
+    (setq ido-enable-flex-matching t))
 
 
 ;; Scooby-Doo by Blazej Kozlowski
@@ -204,7 +201,7 @@
  '(neo-window-fixed-size nil)
  '(package-selected-packages
    (quote
-    (magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
  '(which-key-mode t)
