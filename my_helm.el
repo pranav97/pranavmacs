@@ -1,8 +1,4 @@
 
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
 (helm-mode 1)
 
 
@@ -15,10 +11,8 @@
 (setq helm-locate-project-list
       (list "/Users/pranav_raghavan/emacs_config/"))
 
-
+;; required to track visited projects and put them in helm-projectile-switch
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
 (helm-projectile-on)
-
-;; auto complete turns on suggestions when you are writing code
-(global-auto-composition-mode)
-
 
