@@ -3,20 +3,20 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'load-path "~/emacs_config/external")
+(add-to-list 'load-path "./external")
 (package-initialize)
 
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 
-(load-file "~/emacs_config/requirements.el")
+(load-file "./requirements.el")
 
-(load-file "~/emacs_config/my_evil.el")
+(load-file "./my_evil.el")
 
 ;; always do keybindings before helm
-(load-file "~/emacs_config/key_bindings.el")
+(load-file "./key_bindings.el")
 
-(load-file "~/emacs_config/my_helm.el")
+(load-file "./my_helm.el")
 
 ;; SETUP FOR EVIL
 (nlinum-relative-setup-evil)
