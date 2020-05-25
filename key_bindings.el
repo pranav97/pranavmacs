@@ -27,7 +27,7 @@
     :states 'normal
     :keymaps 'override
     :prefix "SPC"
-    "'" '('shell :which-key "shell"))
+    "'" '(shell :which-key "shell"))
   
   (general-define-key
     :states 'normal
@@ -70,6 +70,7 @@
     "gs" '(magit-status :which-key "status")
     "gp" '(magit-push :which-key "push")
     "gP" '(magit-pull :which-key "pull")
+    "gl" '(magit-log-all :which-key "log")
 
     )
 )

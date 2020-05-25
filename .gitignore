@@ -3,3 +3,5 @@ projectile-bookmarks.eld
 transient/
 ac-comphist.dat
 \#init.el\#
+/eshell/
+/recentf
