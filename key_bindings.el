@@ -12,8 +12,6 @@
   :config
   (general-evil-setup t)
 
-  ;; (general-nmap "SPC" )
-
   (general-nmap "SPC e" (general-simulate-key "C-x"))
   (general-nmap "SPC w" (general-simulate-key "C-w"))
 
@@ -25,6 +23,11 @@
     :prefix "SPC"
     "p"  '(projectile-command-map :which-key "projectile prefix"))
 
+  (general-define-key
+    :states 'normal
+    :keymaps 'override
+    :prefix "SPC"
+    "'" '('shell :which-key "shell"))
   
   (general-define-key
     :states 'normal
@@ -37,7 +40,7 @@
 	  :which-key "helm buffers")
 
     "bd" '(evil-delete-buffer
-	  :which-key "helm buffers"))
+	  :which-key "helm delete buffer"))
 
   (general-define-key
     :states 'normal
@@ -56,7 +59,7 @@
     :prefix "SPC"
     "f"  '(:ignore t :which-key "general")
     "ff" '(helm-find-files :which-key "find-file")
-    "ft" '('shell :which-key "shell"))
+    )
 
   
   (general-define-key
@@ -64,5 +67,9 @@
     :keymaps 'override
     :prefix "SPC"
     "g"  '(:ignore t :which-key "git")
-    "gs" '(magit-status :which-key "status"))
+    "gs" '(magit-status :which-key "status")
+    "gp" '(magit-push :which-key "push")
+    "gP" '(magit-pull :which-key "pull")
+
+    )
 )

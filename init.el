@@ -71,7 +71,15 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (general fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
+    (fill-column-indicator
+     helm-projectile
+     magit
+     which-key
+     org-evil
+     nlinum-relative
+     helm
+     evil-nerd-commenter
+     auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
