@@ -3,20 +3,20 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'load-path "./external")
+(add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
 
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 
-(load-file "./requirements.el")
+(load-file "~/.emacs.d/requirements.el")
 
-(load-file "./my_evil.el")
+(load-file "~/.emacs.d/my_evil.el")
 
 ;; always do keybindings before helm
-(load-file "./key_bindings.el")
+(load-file "~/.emacs.d/key_bindings.el")
 
-(load-file "./my_helm.el")
+(load-file "~/.emacs.d/my_helm.el")
 
 ;; SETUP FOR EVIL
 (nlinum-relative-setup-evil)
@@ -50,6 +50,10 @@
 (setq fci-rule-color "red")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
+
+
+;; folding using hide show minor mode in emacs buit in
+(add-hook 'prog-mode-hook 'hs-minor-mode)
 
 ;;------------------------------------------------------------------------------
 ;;-------!! DO NOT TOUCH THIS OR YOU'LL BREAK EMACS !!!!------------------------
