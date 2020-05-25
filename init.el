@@ -9,13 +9,16 @@
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 
+;; require statements
 (load-file "~/.emacs.d/requirements.el")
 
+;; evil mode configurations
 (load-file "~/.emacs.d/my_evil.el")
 
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
 
+;; helm configurations
 (load-file "~/.emacs.d/my_helm.el")
 
 ;; SETUP FOR EVIL
@@ -51,9 +54,11 @@
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
 
-
 ;; folding using hide show minor mode in emacs buit in
 (add-hook 'prog-mode-hook 'hs-minor-mode)
+
+
+
 
 ;;------------------------------------------------------------------------------
 ;;-------!! DO NOT TOUCH THIS OR YOU'LL BREAK EMACS !!!!------------------------
