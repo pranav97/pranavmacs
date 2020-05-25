@@ -12,9 +12,6 @@
 ;; require statements
 (load-file "~/.emacs.d/requirements.el")
 
-;; evil mode configurations
-(load-file "~/.emacs.d/my_evil.el")
-
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
 
@@ -74,15 +71,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (fill-column-indicator
-     helm-projectile
-     magit
-     which-key
-     org-evil
-     nlinum-relative
-     helm
-     evil-nerd-commenter
-     auto-complete))))
+    (general fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
