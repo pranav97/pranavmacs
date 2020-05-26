@@ -6,6 +6,13 @@
 (add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
 
+;; BUILT IN STUFF 
+;; autosave 
+(auto-save-visited-mode)
+;; folding - hide show minor mode 
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
+
 
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
@@ -19,55 +26,53 @@
 ;; helm configurations
 (load-file "~/.emacs.d/my_helm.el")
 
-;; SETUP FOR EVIL
-(nlinum-relative-setup-evil)
-(add-hook 'prog-mode-hook 'nlinum-relative-mode)
-;; DELAY
-(setq nlinum-relative-redisplay-delay 0.2)
+(use-package nlinum-relative :ensure t
+    :config
+    (nlinum-relative-setup-evil)
+    (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+    ;; DELAY
+    (setq nlinum-relative-redisplay-delay 0.2)
+    ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
+    (setq nlinum-relative-current-symbol "0")
+    ;; 1 if you want 0, 2, 3...
+    (setq nlinum-relative-offset 0))
 
-;; OR "" FOR DISPLAY CURRENT LINE NUMBER
-(setq nlinum-relative-current-symbol "0")
-
-;; 1 if you want 0, 2, 3...
-(setq nlinum-relative-offset 0)
-
-(auto-save-visited-mode)
 
 ;; which key tells you what the next key combination can be in a emacs command 
-(which-key-mode)
-(which-key-setup-minibuffer)
+(use-package which-key :ensure t
+    :config
+    (which-key-mode)
+    (which-key-setup-minibuffer))
+
 
 ;; default settings for auto complete
-(ac-config-default)
-
-
-;; auto complete turns on suggestions when you are writing code
-(global-auto-composition-mode)
+(use-package auto-complete :ensure t
+    :config 
+    (ac-config-default)
+    ;; auto complete turns on suggestions when you are writing code
+    (global-auto-composition-mode))
 
 
 ;; This puts a line indicator for 80 chars
-(setq-default fill-column 80) 
-(setq fci-rule-width 1)
-(setq fci-rule-color "red")
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+(use-package fill-column-indicator :ensure t
+    :config
+    (setq-default fill-column 80) 
+    (setq fci-rule-width 1)
+    (setq fci-rule-color "red")
+    (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+    (global-fci-mode 1))
 
-;; folding using hide show minor mode in emacs buit in
-(add-hook 'prog-mode-hook 'hs-minor-mode)
 
 ;; turning on helm-gtags-mode
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
-
 (use-package helm-gtags :ensure t
     :config
-    ;; customize
+    (add-hook 'c-mode-hook 'helm-gtags-mode)
+    (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    (add-hook 'asm-mode-hook 'helm-gtags-mode)
     (custom-set-variables
 	'(helm-gtags-path-style 'relative)
 	'(helm-gtags-ignore-case t)
-	'(helm-gtags-auto-update t))
-)
+	'(helm-gtags-auto-update t)))
 
 
 
