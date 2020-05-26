@@ -6,6 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
 
+
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 
