@@ -11,6 +11,7 @@
 (auto-save-visited-mode)
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
+(setq inhibit-startup-message t) 
 
 
 
@@ -75,6 +76,10 @@
 	'(helm-gtags-auto-update t)))
 
 
+(use-package window-number :ensure t
+  :config
+  (window-number-mode)
+  (window-number-meta-mode))
 
 
 
@@ -95,7 +100,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
+    (window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

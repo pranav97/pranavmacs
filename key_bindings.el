@@ -93,7 +93,7 @@
 	    :which-key "helm delete buffer"))
 
     (general-define-key
-	:states 'normal
+	:states '(normal visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"c"  '(:ignore t
@@ -120,6 +120,7 @@
 	"gp" '(magit-push :which-key "push")
 	"gP" '(magit-pull :which-key "pull")
 	"gl" '(magit-log-all :which-key "log"))
+
 
     (general-define-key
 	:states 'normal
