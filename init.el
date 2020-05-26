@@ -54,6 +54,21 @@
 ;; folding using hide show minor mode in emacs buit in
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
+;; turning on helm-gtags-mode
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+(use-package helm-gtags :ensure t
+    :config
+    ;; customize
+    (custom-set-variables
+	'(helm-gtags-path-style 'relative)
+	'(helm-gtags-ignore-case t)
+	'(helm-gtags-auto-update t))
+)
+
+
 
 
 
@@ -69,17 +84,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (fill-column-indicator
-     helm-projectile
-     magit
-     which-key
-     org-evil
-     nlinum-relative
-     helm
-     evil-nerd-commenter
-     auto-complete))))
+    (neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
