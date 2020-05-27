@@ -49,8 +49,10 @@
 	(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
 	(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
 	(define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
-	(define-key evil-normal-state-local-map (kbd "d") 'neotree-dir)
 	(define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+	(define-key evil-normal-state-local-map (kbd "w") 'evil-window-right)
+	(define-key evil-normal-state-local-map (kbd "f") 'neotree-change-root)
+
 	(define-key evil-normal-state-local-map
 	  (kbd "p") 'neotree-previous-line)
 	(define-key evil-normal-state-local-map
