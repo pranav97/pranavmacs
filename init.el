@@ -33,7 +33,8 @@
     ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
     (setq nlinum-relative-current-symbol "0")
     ;; 1 if you want 0, 2, 3...
-    (setq nlinum-relative-offset 0))
+    (setq nlinum-relative-offset 0)
+    (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 
 ;; which key tells you what the next key combination can be in a emacs command 
@@ -48,7 +49,7 @@
     :config 
     (ac-config-default)
     ;; auto complete turns on suggestions when you are writing code
-    (global-auto-composition-mode))
+    (add-hook 'prog-mode-hook 'auto-composition-mode))
 
 
 ;; This puts a line indicator for 80 chars
@@ -56,7 +57,7 @@
     :config
     (setq-default fill-column 80) 
     (setq fci-rule-width 1)
-    (setq fci-rule-color "red")
+    (setq fci-rule-color "orange")
     (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
     (global-fci-mode 1))
 
@@ -73,16 +74,15 @@
 	'(helm-gtags-auto-update t)))
 
 
-(use-package window-number :ensure t
-  :config
-  (window-number-mode)
-  (window-number-meta-mode))
+(use-package winum
+    :config
+    (setq winum-auto-setup-mode-line nil)
+    (winum-mode))
 
 
-
-(use-package powerline
-  :config
-  (powerline-evil-center-color-theme))
+(use-package spaceline-config
+    :config
+    (spaceline-spacemacs-theme))
 
 
 
@@ -146,7 +146,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters dracula-theme powerline-evil window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
+    (spaceline winum rainbow-delimiters dracula-theme powerline-evil window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

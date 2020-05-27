@@ -13,6 +13,23 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+
+(setq winum-keymap
+    (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-`") 'winum-select-window-by-number)
+    (define-key map (kbd "C-²") 'winum-select-window-by-number)
+    (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+    (define-key map (kbd "M-1") 'winum-select-window-1)
+    (define-key map (kbd "M-2") 'winum-select-window-2)
+    (define-key map (kbd "M-3") 'winum-select-window-3)
+    (define-key map (kbd "M-4") 'winum-select-window-4)
+    (define-key map (kbd "M-5") 'winum-select-window-5)
+    (define-key map (kbd "M-6") 'winum-select-window-6)
+    (define-key map (kbd "M-7") 'winum-select-window-7)
+    (define-key map (kbd "M-8") 'winum-select-window-8)
+    map))
+
+
 ;; need that page up usig control key
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -29,14 +46,17 @@
 	(lambda ()
 	(define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
 	(define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
-	(define-key evil-normal-state-local-map (kbd "q") 'neotree-dir)
+	(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
 	(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
 	(define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
 	(define-key evil-normal-state-local-map (kbd "d") 'neotree-dir)
 	(define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-	(define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
-	(define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
-	(define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle))))
+	(define-key evil-normal-state-local-map
+	  (kbd "p") 'neotree-previous-line)
+	(define-key evil-normal-state-local-map
+	  (kbd "A") 'neotree-stretch-toggle)
+	(define-key evil-normal-state-local-map
+	  (kbd "H") 'neotree-hidden-file-toggle))))
 
 
 
@@ -64,7 +84,8 @@
 	:states 'normal
 	:keymaps 'override
 	:prefix "SPC"
-	"TAB"  '(evil-switch-to-windows-last-buffer :which-key "window-last-buff"))
+	"TAB"  '(evil-switch-to-windows-last-buffer
+		 :which-key "window-last-buff"))
 
     (general-define-key
 	:states 'normal
@@ -95,7 +116,7 @@
 	"bb" '(helm-buffers-list
 	    :which-key "helm buffers")
 
-	"bd" '(evil-delete-buffer
+	"bd" '(kill-this-buffer
 	    :which-key "helm delete buffer"))
 
     (general-define-key
