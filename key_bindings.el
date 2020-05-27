@@ -1,42 +1,47 @@
 
+;; default find, mx, bookmarks and buffers list be gone
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 (global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-set-key (kbd "C-x C-b") #'helm-buffers-list)
+
+
+;; window shrinking and resizing
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;; need that page up usig control key
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
 
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
 
+
+;; auto-indentation
 (global-set-key "\C-m" 'newline-and-indent)
 
-
-(use-package evil :ensure t
-    :config
-    (evil-mode 1)
-)
-  
 
 (use-package neotree :ensure t
     :config
     (add-hook 'neotree-mode-hook
 	(lambda ()
-	(evil-define-key 'normal neotree-mode-map (kbd "SPC")
-	    'neotree-quick-look)
-	    (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-	    (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-	    (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-	    (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
-	    (evil-define-key 'normal neotree-mode-map (kbd "p")
-	    'neotree-previous-line)
-	    (evil-define-key 'normal neotree-mode-map (kbd "A")
-	    'neotree-stretch-toggle)
-	    (evil-define-key 'normal neotree-mode-map (kbd "H")
-	    'neotree-hidden-file-toggle)
-	)
-    )
+	(define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+	(define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+	(define-key evil-normal-state-local-map (kbd "q") 'neotree-dir)
+	(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+	(define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+	(define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+	(define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+	(define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+	(define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle))))
+
+
+
+(use-package evil :ensure t
+    :config
+    (evil-mode 1)
 )
 
 (use-package general :ensure t

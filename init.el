@@ -83,6 +83,21 @@
 
 
 
+(use-package powerline
+  :config
+  (powerline-center-evil-theme))
+
+;; (use-package shackle :ensure t
+;;   :config
+;;   (setq shackle-rules '((compilation-mode :noselect t))
+;;       shackle-default-rule '(:select t))
+;;   (setq helm-display-function 'pop-to-buffer) ; make helm play nice
+;;   (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.4))))
+
+
+
+
+
 ;;------------------------------------------------------------------------------
 ;;-------!! DO NOT TOUCH THIS OR YOU'LL BREAK EMACS !!!!------------------------
 ;;------------------------------------------------------------------------------
@@ -100,7 +115,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
+    (powerline-evil window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
