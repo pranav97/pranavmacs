@@ -29,9 +29,6 @@
 
 (use-package nlinum-relative :ensure t
     :config
-    (nlinum-relative-setup-evil)
-    (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-    ;; DELAY
     (setq nlinum-relative-redisplay-delay 0.2)
     ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
     (setq nlinum-relative-current-symbol "0")
@@ -85,7 +82,9 @@
 
 (use-package powerline
   :config
-  (powerline-center-evil-theme))
+  (powerline-evil-center-color-theme))
+
+
 
 ;; (use-package shackle :ensure t
 ;;   :config
@@ -95,6 +94,38 @@
 ;;   (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.4))))
 
 
+(use-package dracula-theme :ensure t
+    :config
+
+    ;; Don't change the font size for some headings and titles (default t)
+    (setq dracula-enlarge-headings nil)
+
+    ;; Adjust font size of titles level 1 (default 1.3)
+    (setq dracula-height-title-1 1.25)
+
+    ;; Adjust font size of titles level 2 (default 1.1)
+    (setq dracula-height-title-1 1.15)
+
+    ;; Adjust font size of titles level 3 (default 1.0)
+    (setq dracula-height-title-1 1.05)
+
+    ;; Adjust font size of document titles (default 1.44)
+    (setq dracula-height-doc-title 1.4)
+
+    ;; Use less pink and bold on the mode-line and minibuffer (default nil)
+    (setq dracula-alternate-mode-line-and-minibuffer t))
+
+
+;; (use-package smartparens-config
+;;     :config
+;;     ;; Always start smartparens mode in js-mode.
+;;     (add-hook 'js-mode-hook #'smartparens-mode)
+;;     (add-hook 'c-mode-hook #'smartparens-mode)
+;;     (add-hook 'c++-mode-hook #'smartparens-mode))
+
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
 
@@ -115,7 +146,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (powerline-evil window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
+    (rainbow-delimiters dracula-theme powerline-evil window-number neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
