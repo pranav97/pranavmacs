@@ -1,7 +1,9 @@
 (require 'package)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t))
+(setq package-archives 
+  '(("gnu" . "http://elpa.gnu.org/packages/")
+    ("marmalade" . "http://marmalade-repo.org/packages/")
+    ("melpa" . "http://melpa.org/packages/")))
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
@@ -11,7 +13,12 @@
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'company-mode)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+
 (setq inhibit-startup-message t) 
+
 
 
 
@@ -27,15 +34,18 @@
 ;; helm configurations
 (load-file "~/.emacs.d/my_helm.el")
 
-(use-package nlinum-relative :ensure t
-    :config
-    (setq nlinum-relative-redisplay-delay 0.2)
-    ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
-    (setq nlinum-relative-current-symbol "0")
-    ;; 1 if you want 0, 2, 3...
-    (setq nlinum-relative-offset 0)
-    (add-hook 'prog-mode-hook 'nlinum-relative-mode))
+;; (use-package nlinum-relative :ensure t
+;;     :config
+;;     (setq nlinum-relative-redisplay-delay 0.2)
+;;     ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
+;;     (setq nlinum-relative-current-symbol "0")
+;;     ;; 1 if you want 0, 2, 3...
+;;     (setq nlinum-relative-offset 0)
+;;     (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
+
+(use-package org-evil :ensure t)
+(use-package magit :ensure t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key :ensure t
@@ -93,39 +103,90 @@
   :ensure t)
 
 
+
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
+;; if not tramp then I can do this
+;; magic goes on with irony and company mode on the client 
 
-(use-package company :ensure t
-  :config
-  (setq company-idle-delay  0) 
-  (setq minimum-prefix-length 1))
+;; (use-package company :ensure t
+;;   :config
+;;   (setq company-idle-delay  0) 
+;;   (setq minimum-prefix-length 1))
 
 
-(use-package irony
-    :config
-    (add-hook 'c-mode-hook 'irony-mode)
-    (add-hook 'c++-mode-hook 'irony-mode)
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+;; (use-package irony
+;;     :config
+;;     (add-hook 'c-mode-hook 'irony-mode)
+;;     (add-hook 'c++-mode-hook 'irony-mode)
+;;     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
   
 
   
-(use-package company-irony
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-irony))
+;; (use-package company-irony
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-irony))
 
 
-;;------------------------------------------------------------------------------
-;;-------!! DO NOT TOUCH THIS OR YOU'LL BREAK EMACS !!!!------------------------
-;;------------------------------------------------------------------------------
-;;--------------------! do not touch !------------------------------------------
-;;---------------------------------------------------! do not touch !-----------
-;;------------------------------------------------------------------------------
 
+(use-package auto-complete :ensure t
+    :config 
+    (ac-config-default)
+    ;; auto complete turns on suggestions when you are writing code
+    (global-auto-composition-mode))
+
+
+
+
+
+;; Scooby-Doo by Blazej Kozlowski
+;;                                             :\                  
+;;                                             ;\\                 
+;;                                             ; ;;  __            
+;;                                             :/ :-",dP    _.ggp. 
+;;                                             :     (*).-"" :$$$$;
+;;                                             ;              T$$$;
+;;                                            :     _,-        `TP 
+;;                                            ;      `.  _      ;  
+;;                                            ;        "" \    /   
+;;                                            ;            `-+'    
+;;                                            :            .-'     
+;;                                             ;      \;   ;       
+;;                                             :       `--+'-.     
+;;  .---.                                       ;         ;`       
+;; :_    `.                                     :         ;        
+;;   "-,   ;                                   / "-.      :        
+;;      ;  :                                .p""-.  ""--..:        
+;;      ;  :                             .-T$$P   ""--..___l-,     
+;;      ;  :                          .-"   ""            :\()l    
+;;      ;  ;              _________.-"         $$          ;`-'    
+;;      ;  ; bug     .--""$$$$$$$P                         :       
+;;      ;  '._____.-"_.   'T$$P^'                          :       
+;;      :         .-"                                 \    :       
+;;      '.___...-"                                     ;   :       
+;;            /                                        ;   ;       
+;;           :                   .            /       /   /        
+;;           ;                 .J__          :       /  .'         
+;;           ;               .;    "-.       ;      j.-"           
+;;           :             .'/        "-.    ;     : :             
+;;            ;          .' /            "---:     ; ;             
+;;            :       .-"  /                 :    : :              
+;;            ;    .-"  .-"                   ;   ; ;              
+;;           /   .'  .-"                      :  : :               
+;;          /  .'  .'                         :  | ;               
+;;         :  /\  :                           :  ;:                
+;;         ; :  ; ;                           : : ;                
+;;        :  ;  : :__                         ; | :                
+;;        ; _L__J   -`,                      :  : '--.             
+;;        :  l l l____l                       \ _`-,-:             
+;;       ( l ;_:-'                            /  l |`;             
+;;        """                                :_l :_;_l             
+;;                                              "
+;; do not touch.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

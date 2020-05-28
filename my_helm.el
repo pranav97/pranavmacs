@@ -13,5 +13,6 @@
 
     ;; required to track visited projects and put them in helm-projectile-switch
     (projectile-global-mode)
+    (require 'helm-projectile)
     (setq projectile-completion-system 'helm)
     (helm-projectile-on))

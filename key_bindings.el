@@ -1,4 +1,5 @@
 
+
 ;; default find, mx, bookmarks and buffers list be gone
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
@@ -29,6 +30,7 @@
     (define-key map (kbd "M-8") 'winum-select-window-8)
     map))
 
+(require 'evil)
 
 ;; need that page up usig control key
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
