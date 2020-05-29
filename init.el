@@ -13,11 +13,15 @@
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'company-mode)
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+(when (version<= "26.0.50" emacs-version)
+    (display-line-numbers-mode)
+    (setq-default display-line-numbers 'relative)
+)
 
 
 (setq inhibit-startup-message t) 
+(toggle-scroll-bar -1) 
+(tool-bar-mode -1) 
 
 
 
@@ -167,23 +171,6 @@
 ;;      ;  ; bug     .--""$$$$$$$P                         :       
 ;;      ;  '._____.-"_.   'T$$P^'                          :       
 ;;      :         .-"                                 \    :       
-;;      '.___...-"                                     ;   :       
-;;            /                                        ;   ;       
-;;           :                   .            /       /   /        
-;;           ;                 .J__          :       /  .'         
-;;           ;               .;    "-.       ;      j.-"           
-;;           :             .'/        "-.    ;     : :             
-;;            ;          .' /            "---:     ; ;             
-;;            :       .-"  /                 :    : :              
-;;            ;    .-"  .-"                   ;   ; ;              
-;;           /   .'  .-"                      :  : :               
-;;          /  .'  .'                         :  | ;               
-;;         :  /\  :                           :  ;:                
-;;         ; :  ; ;                           : : ;                
-;;        :  ;  : :__                         ; | :                
-;;        ; _L__J   -`,                      :  : '--.             
-;;        :  l l l____l                       \ _`-,-:             
-;;       ( l ;_:-'                            /  l |`;             
 ;;        """                                :_l :_;_l             
 ;;                                              "
 ;; do not touch.
@@ -197,10 +184,12 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter))))
+    (nlinum-hl ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "gray13" :foreground "#bdbdb3" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
+ '(line-number-current-line ((t (:inherit line-number :foreground "#ff0000")))))
