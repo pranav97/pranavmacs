@@ -14,16 +14,14 @@
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'company-mode)
 (when (version<= "26.0.50" emacs-version)
-    (display-line-numbers-mode)
-    (setq-default display-line-numbers 'relative)
+    (add-hook 'prog-mode-hook (lambda () (setq display-line-numbers 'relative)))
 )
 
 
 (setq inhibit-startup-message t) 
 (toggle-scroll-bar -1) 
 (tool-bar-mode -1) 
-
-
+(global-visual-line-mode t)
 
 
 ;; auto save folder
