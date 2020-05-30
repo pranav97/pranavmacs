@@ -13,15 +13,17 @@
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'company-mode)
+(add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
+(add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1)))
 (when (version<= "26.0.50" emacs-version)
-    (add-hook 'prog-mode-hook (lambda () (setq display-line-numbers 'relative)))
-)
+  (add-hook 'prog-mode-hook
+	    (lambda ()
+	      (setq display-line-numbers 'relative))))
 
 
 (setq inhibit-startup-message t) 
 (toggle-scroll-bar -1) 
 (tool-bar-mode -1) 
-(global-visual-line-mode t)
 
 
 ;; auto save folder
