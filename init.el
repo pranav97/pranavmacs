@@ -192,4 +192,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "gray13" :foreground "#bdbdb3" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
- '(line-number-current-line ((t (:inherit line-number :foreground "#ff0000")))))
+ '(cursor ((t (:background "#ffff00"))))
+ '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black")))))
