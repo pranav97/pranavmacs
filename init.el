@@ -60,11 +60,14 @@
 ;; This puts a line indicator for 80 chars
 (use-package fill-column-indicator :ensure t
     :config
-    (setq-default fill-column 80) 
-    (setq fci-rule-width 1)
-    (setq fci-rule-color "orange")
-    (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-    (global-fci-mode 1))
+    (add-hook 'prog-mode-hook (lambda () 
+	(setq-default fill-column 80) 
+	(setq fci-rule-width 1)
+	(setq fci-rule-color "orange")
+	(fci-mode 1)
+	;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+	;; (global-fci-mode 1)
+	)))
 
 
 ;; turning on helm-gtags-mode
