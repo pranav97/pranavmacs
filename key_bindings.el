@@ -1,4 +1,5 @@
 
+;; mostly unused emacs keybindings.
 
 ;; default find, mx, bookmarks and buffers list be gone
 (global-set-key (kbd "M-x") #'helm-M-x)
@@ -145,7 +146,10 @@
 	:keymaps 'override
 	:prefix "SPC"
 	"f"  '(:ignore t :which-key "general")
-	"ff" '(helm-find-files :which-key "find-file")
+	;; good enough for most cases autoterminates
+	"ff" '(find-file :which-key "find-file")
+	;; easier to search big folders with this 
+	"fh" '(helm-find-files :which-key "helm-find-files")
 	"ft" '(neotree-toggle :which-key "neotree-toggle"))
 
     (general-define-key
@@ -163,7 +167,6 @@
 	:states 'normal
 	:keymaps 'override
 	:prefix "SPC"
-
 	"h"  '(:ignore t :which-key "helm-gtags")
 	"hf" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
 	"hr" '(helm-gtags-find-rtag :which-key "helm-gtags-find-rtag")
