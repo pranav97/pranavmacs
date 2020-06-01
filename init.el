@@ -14,7 +14,8 @@
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'company-mode)
 (add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
-(add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1)))
+;; (add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1)))
+(add-hook 'prog-mode-hook (lambda () (show-smartparens-mode 1)))
 (when (version<= "26.0.50" emacs-version)
   (add-hook 'prog-mode-hook
 	    (lambda ()
@@ -73,6 +74,7 @@
 	'(helm-gtags-path-style 'relative)
 	'(helm-gtags-ignore-case t)
 	'(helm-gtags-auto-update t)))
+
 
 
 (use-package winum
@@ -152,7 +154,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -161,4 +163,13 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "gray13" :foreground "#bdbdb3" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
  '(cursor ((t (:background "#ffff00"))))
- '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black")))))
+ '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "LightGreen"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "DarkMagenta"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "DarkCyan"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#4170a"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#81b0e3"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "white"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "grey80"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "orange")))))
