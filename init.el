@@ -38,7 +38,6 @@
 ;; helm configurations
 (load-file "~/.emacs.d/my_helm.el")
 
-
 (use-package org-evil :ensure t)
 (use-package magit :ensure t)
 
@@ -107,37 +106,11 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
-;; if not tramp then I can do this
-;; magic goes on with irony and company mode on the client 
-
-;; (use-package company :ensure t
-;;   :config
-;;   (setq company-idle-delay  0) 
-;;   (setq minimum-prefix-length 1))
-
-
-;; (use-package irony
-;;     :config
-;;     (add-hook 'c-mode-hook 'irony-mode)
-;;     (add-hook 'c++-mode-hook 'irony-mode)
-;;     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-  
-
-  
-;; (use-package company-irony
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-irony))
-
-
-
 (use-package auto-complete :ensure t
     :config 
     (ac-config-default)
     ;; auto complete turns on suggestions when you are writing code
     (global-auto-composition-mode))
-
-
 
 
 
