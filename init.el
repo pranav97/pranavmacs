@@ -38,15 +38,6 @@
 ;; helm configurations
 (load-file "~/.emacs.d/my_helm.el")
 
-;; (use-package nlinum-relative :ensure t
-;;     :config
-;;     (setq nlinum-relative-redisplay-delay 0.2)
-;;     ;; OR "" FOR DISPLAY CURRENT LINE NUMBER
-;;     (setq nlinum-relative-current-symbol "0")
-;;     ;; 1 if you want 0, 2, 3...
-;;     (setq nlinum-relative-offset 0)
-;;     (add-hook 'prog-mode-hook 'nlinum-relative-mode))
-
 
 (use-package org-evil :ensure t)
 (use-package magit :ensure t)
@@ -187,7 +178,7 @@
  '(helm-gtags-path-style (quote relative))
  '(package-selected-packages
    (quote
-    (nlinum-hl ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil nlinum-relative helm evil-nerd-commenter)))
+    (ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
