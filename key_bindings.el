@@ -121,14 +121,14 @@
 	:states 'normal
 	:keymaps 'override
 	:prefix "SPC"
-
 	"b"  '(:ignore t
 		:which-key "buffers")
 	"bb" '(helm-buffers-list
 	    :which-key "helm buffers")
-
 	"bd" '(kill-this-buffer
-	    :which-key "helm delete buffer"))
+	    :which-key "helm delete buffer")
+	"bn" '(evil-buffer-new
+	   :which-key "new buffer"))
 
     (general-define-key
 	:states '(normal visual)
@@ -150,7 +150,7 @@
 	"ff" '(find-file :which-key "find-file")
 	;; easier to search big folders with this 
 	"fh" '(helm-find-files :which-key "helm-find-files")
-	"ft" '(neotree-toggle :which-key "neotree-toggle"))
+	"ft" '(neotree :which-key "neotree"))
 
     (general-define-key
 	:states 'normal

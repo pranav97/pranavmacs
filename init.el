@@ -12,10 +12,12 @@
 (auto-save-visited-mode)
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(add-hook 'prog-mode-hook 'company-mode)
 (add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
-;; (add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1)))
-(add-hook 'prog-mode-hook (lambda () (show-smartparens-mode 1)))
+(use-package smart-tab
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1))))
+
 (when (version<= "26.0.50" emacs-version)
   (add-hook 'prog-mode-hook
 	    (lambda ()
@@ -30,9 +32,6 @@
 
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
-
-;; require statements
-(load-file "~/.emacs.d/requirements.el")
 
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
@@ -163,11 +162,12 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "gray13" :foreground "#bdbdb3" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
  '(cursor ((t (:background "#ffff00"))))
+ '(git-gutter:modified ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "LightGreen"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "DarkMagenta"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "DarkCyan"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#4170a"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "DeepPink2"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "light coral"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "light sea green"))))
  '(rainbow-delimiters-depth-5-face ((t (:foreground "#81b0e3"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "white"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "grey80"))))
