@@ -31,18 +31,18 @@
     (define-key map (kbd "M-8") 'winum-select-window-8)
     map))
 
-(require 'evil)
-
-;; need that page up usig control key
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-;; Make evil-mode up/down operate in screen lines instead of logical lines
-(define-key evil-motion-state-map "j" 'evil-next-visual-line)
-(define-key evil-motion-state-map "k" 'evil-previous-visual-line)
-;; Also in visual mode
-(define-key evil-visual-state-map "j" 'evil-next-visual-line)
-(define-key evil-visual-state-map "k" 'evil-previous-visual-line)
-
+(use-package evil
+     :ensure t
+     :config
+    ;; need that page up usig control key
+    (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+    (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+    ;; Make evil-mode up/down operate in screen lines instead of logical lines
+    (define-key evil-motion-state-map "j" 'evil-next-visual-line)
+    (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
+    ;; Also in visual mode
+    (define-key evil-visual-state-map "j" 'evil-next-visual-line)
+    (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
 
 
 ;; auto-indentation
@@ -174,6 +174,17 @@
 	"hp" '(helm-gtags-previous-history :which-key "helm-gtags-prev")
 	"hn" '(helm-gtags-next-history :which-key "helm-gtags-next")
 	"hs" '(helm-gtags-pop-stack :which-key "helm-gtags-pop"))
+
+
+
+    (general-define-key
+	:states 'normal
+	:keymaps 'override
+	:prefix "SPC"
+	"o"  '(:ignore t :which-key "org-stuff")
+	"oa"  '(org-agenda :which-key "org-agends")
+	"op"  '(org-pomodoro :which-key "org-pomodoro")
+        "os"  '(org-schedule :which-eky "org-schedule"))
 
 )
 

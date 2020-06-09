@@ -82,9 +82,18 @@
     (winum-mode))
 
 
-(use-package spaceline-config
+
+(use-package spaceline :ensure t
+  :config
+  (use-package spaceline-config
     :config
-    (spaceline-spacemacs-theme))
+    (spaceline-helm-mode 1)
+    (spaceline-emacs-theme)
+    (spaceline-toggle-minor-modes-off)
+    (spaceline-toggle-buffer-encoding-off)
+    (spaceline-toggle-buffer-encoding-abbrev-off)
+    (setq powerline-default-separator 'rounded)
+    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
 
 
 (use-package ample-theme
@@ -148,12 +157,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-completion-style (quote emacs))
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
  '(helm-gtags-path-style (quote relative))
+ '(org-agenda-files (quote ("~/Documents/org_files/todo-list.org")))
+ '(org-pomodoro-clock-break nil)
+ '(org-pomodoro-killed-sound t)
+ '(org-pomodoro-short-break-sound-p nil)
+ '(org-pomodoro-start-sound
+   "/Users/pranavraghavan/.emacs.d/elpa/org-pomodoro-20190530.1445/resources/bell.wav")
+ '(org-pomodoro-ticking-frequency 120)
+ '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
-    (smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -164,12 +182,13 @@
  '(cursor ((t (:background "#ffff00"))))
  '(git-gutter:modified ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "LightGreen"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "DeepPink2"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "light coral"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "light sea green"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#81b0e3"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "white"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "grey80"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "orange")))))
+ '(org-pomodoro-mode-line ((t (:background "grey100" :foreground "orange red"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "light slate blue"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "LightSkyBlue"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "light sea green"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "LightGreen"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "cyan"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "light pink"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "grey80")))))
