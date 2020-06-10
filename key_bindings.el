@@ -16,6 +16,12 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 
+;; auto-indentation
+(global-set-key "\C-m" 'newline-and-indent)
+
+
+
+;; mapping windows + numbers to the winum like command in chrome
 (setq winum-keymap
     (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-`") 'winum-select-window-by-number)
@@ -34,6 +40,7 @@
 (use-package evil
      :ensure t
      :config
+    (evil-mode 1)
     ;; need that page up usig control key
     (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
     (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -42,25 +49,31 @@
     (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
     ;; Also in visual mode
     (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-    (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
+    (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
 
 
-;; auto-indentation
-(global-set-key "\C-m" 'newline-and-indent)
+    )
 
 
+
+;; neo tree specific keybindings
 (use-package neotree :ensure t
     :config
     (add-hook 'neotree-mode-hook
 	(lambda ()
+
+
+	;; my bindings
+	(define-key evil-normal-state-local-map (kbd "w") 'evil-window-right)
+	(define-key evil-normal-state-local-map (kbd "f") 'neotree-change-root)
+
+	;; standard bindings
 	(define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
 	(define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
 	(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
 	(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
 	(define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
 	(define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-	(define-key evil-normal-state-local-map (kbd "w") 'evil-window-right)
-	(define-key evil-normal-state-local-map (kbd "f") 'neotree-change-root)
 
 	(define-key evil-normal-state-local-map
 	  (kbd "p") 'neotree-previous-line)
@@ -71,11 +84,7 @@
 
 
 
-(use-package evil :ensure t
-    :config
-    (evil-mode 1)
-)
-
+;; trying to get some normal keybindings with leader key space.
 (use-package general :ensure t
     :config
     (general-evil-setup t)

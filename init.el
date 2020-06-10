@@ -9,29 +9,38 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+;; auto save folder
+(setq backup-directory-alist '(("." . "~/.emacs-saves")))
 (auto-save-visited-mode)
+
+
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
-(use-package smart-tab
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook (lambda () (smart-tab-mode 1))))
 
+;; stuff like .log files or .out files treated as text mode
+(setq-default major-mode 'text-mode)
+
+;; if typing into simlpe text file or org file, then emacs inserts new lines for me
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+
+;; this is for wrapping
+(add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
+
+;; emacs has built in line numbers relative
 (when (version<= "26.0.50" emacs-version)
   (add-hook 'prog-mode-hook
 	    (lambda ()
 	      (setq display-line-numbers 'relative))))
 
 
+;; remove some stuff that comes built into emacs
 (setq inhibit-startup-message t) 
 (toggle-scroll-bar -1) 
 (tool-bar-mode -1) 
 (menu-bar-mode -1)
 
-
-;; auto save folder
-(setq backup-directory-alist '(("." . "~/.emacs-saves")))
 
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
@@ -96,13 +105,13 @@
     (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
 
 
+;; themes
 (use-package ample-theme
   :init (progn
 	    (load-theme 'ample t t)
 	    (load-theme 'ample-flat t t)
 	    (load-theme 'ample-light t t)
 	    ;; (enable-theme 'ample-light)
-	    
 	    (enable-theme 'ample)
 
 	    (custom-theme-set-faces 'ample
@@ -117,6 +126,9 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
+;; simplest autocomplete but powerful. Not good for autocomplete
+;; in big c / c++ projects since it does not have any back end
+;; that can fetch those imports 
 (use-package auto-complete :ensure t
     :config 
     (ac-config-default)
