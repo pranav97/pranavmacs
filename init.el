@@ -12,6 +12,7 @@
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 (auto-save-visited-mode)
+(auto-revert-mode)
 
 
 ;; folding - hide show minor mode 
@@ -156,13 +157,6 @@
     :config 
     (ido-mode t)
     (setq ido-enable-flex-matching t))
-
-
-(use-package git-gutter-fringe+
-  :ensure t
-  :config
-  (global-git-gutter+-mode))
-  
 
 
 ;; Scooby-Doo by Blazej Kozlowski
