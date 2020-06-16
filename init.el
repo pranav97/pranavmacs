@@ -131,7 +131,6 @@
 	    (load-theme 'ample-light t t)
 	    ;; (enable-theme 'ample-light)
 	    (enable-theme 'ample)
-
 	    (custom-theme-set-faces 'ample
 		`(region ((t :background "#5c2556")))))
   :defer t
@@ -144,18 +143,26 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
-;; simplest autocomplete but powerful. Not good for autocomplete
-;; in big c / c++ projects since it does not have any back end
-;; that can fetch those imports 
-(use-package auto-complete :ensure t
+(use-package company
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode))
+
+
+
+;; this is the minibuffer stuff, the very last line on this buffer 
+(use-package ido
+    :ensure t
     :config 
-    (ac-config-default)
-    ;; auto complete turns on suggestions when you are writing code
-    (global-auto-composition-mode))
+    (ido-mode t)
+    (setq ido-enable-flex-matching t))
 
 
-
-
+(use-package git-gutter-fringe+
+  :ensure t
+  :config
+  (global-git-gutter+-mode))
+  
 
 
 ;; Scooby-Doo by Blazej Kozlowski
@@ -204,7 +211,7 @@
  '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
-    (helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
