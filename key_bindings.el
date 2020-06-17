@@ -91,6 +91,7 @@
 
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
+    (general-nmap "SPC C" (general-simulate-key "C-c"))
 
 
     (general-define-key
