@@ -147,14 +147,21 @@
 ;; simplest autocomplete but powerful. Not good for autocomplete
 ;; in big c / c++ projects since it does not have any back end
 ;; that can fetch those imports 
-(use-package auto-complete :ensure t
+(use-package auto-complete
+  :ensure t
     :config 
     (ac-config-default)
     ;; auto complete turns on suggestions when you are writing code
     (global-auto-composition-mode))
 
 
-
+;; You need to install fringe-helper.el
+(require 'git-gutter-fringe)
+(set-face-foreground 'git-gutter-fr:modified "yellow")
+(set-face-foreground 'git-gutter-fr:added    "blue")
+(set-face-foreground 'git-gutter-fr:deleted  "white")
+(setq-default left-fringe-width  20)
+(setq git-gutter-fr:side 'left-fringe)
 
 
 
@@ -216,6 +223,7 @@
  '(git-gutter:modified ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))
  '(org-pomodoro-mode-line ((t (:background "grey100" :foreground "orange red"))))
+ '(rainbow-delimiters-base-face ((t (:inherit nil :weight extra-bold))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "light slate blue"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "LightSkyBlue"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "light sea green"))))

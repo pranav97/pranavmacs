@@ -169,7 +169,8 @@
 	"gs" '(magit-status :which-key "status")
 	"gp" '(magit-push :which-key "push")
 	"gP" '(magit-pull :which-key "pull")
-	"gl" '(magit-log-all :which-key "log"))
+	"gl" '(magit-log-all :which-key "log")
+	"gg" '(git-gutter :which-key "git gutter"))
 
 
     (general-define-key
