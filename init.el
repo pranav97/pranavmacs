@@ -165,6 +165,16 @@
     (setq ido-enable-flex-matching t))
 
 
+(use-package xcscope
+	 :ensure t
+	 :config
+	 (cscope-setup))
+
+;; this makes sure that modes that don't need to be evil are not evil
+(setq evil-default-state 'emacs)
+(add-hook 'prog-mode-hook 'evil-mode)
+
+
 ;; Scooby-Doo by Blazej Kozlowski
 ;;                                             :\                  
 ;;                                             ;\\                 
@@ -211,7 +221,7 @@
  '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
-    (yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
