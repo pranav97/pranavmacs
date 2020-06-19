@@ -42,6 +42,10 @@
 (tool-bar-mode -1) 
 (menu-bar-mode -1)
 
+(use-package xcscope
+	 :ensure t
+	 :config
+	 (cscope-setup))
 
 ;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
@@ -163,16 +167,6 @@
     :config 
     (ido-mode t)
     (setq ido-enable-flex-matching t))
-
-
-(use-package xcscope
-	 :ensure t
-	 :config
-	 (cscope-setup))
-
-;; this makes sure that modes that don't need to be evil are not evil
-(setq evil-default-state 'emacs)
-(add-hook 'prog-mode-hook 'evil-mode)
 
 
 ;; Scooby-Doo by Blazej Kozlowski

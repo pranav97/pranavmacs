@@ -14,6 +14,7 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+(global-set-key (kbd "<f12>") 'evil-mode)
 
 
 ;; auto-indentation
@@ -38,9 +39,13 @@
     map))
 
 (use-package evil
-     :ensure t
-     :config
+    :ensure t
+    :config
     (evil-mode 1)
+    (evil-set-initial-state 'fundamental-mode 'emacs)
+    (evil-set-initial-state 'neotree-mode 'emacs)
+    (evil-set-initial-state 'dired-mode 'emacs)
+
     ;; need that page up usig control key
     (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
     (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
@@ -49,10 +54,7 @@
     (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
     ;; Also in visual mode
     (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-    (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
-
-    )
-
+    (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
 
 
 ;; neo tree specific keybindings
@@ -60,26 +62,30 @@
     :config
     (add-hook 'neotree-mode-hook
 	(lambda ()
+	  (define-key evil-normal-state-local-map (kbd "w")
+	    'evil-window-right)
+	  (define-key evil-normal-state-local-map (kbd "f")
+	    'neotree-change-root)
 
-
-	;; my bindings
-	(define-key evil-normal-state-local-map (kbd "w") 'evil-window-right)
-	(define-key evil-normal-state-local-map (kbd "f") 'neotree-change-root)
-
-	;; standard bindings
-	(define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-	(define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
-	(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-	(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-	(define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
-	(define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
-
-	(define-key evil-normal-state-local-map
-	  (kbd "p") 'neotree-previous-line)
-	(define-key evil-normal-state-local-map
-	  (kbd "A") 'neotree-stretch-toggle)
-	(define-key evil-normal-state-local-map
-	  (kbd "H") 'neotree-hidden-file-toggle))))
+	    ;; standard bindings
+	  (define-key evil-normal-state-local-map (kbd "TAB")
+	    'neotree-enter)
+	  (define-key evil-normal-state-local-map (kbd "SPC")
+	    'neotree-quick-look)
+	  (define-key evil-normal-state-local-map (kbd "q")
+	    'neotree-hide)
+	  (define-key evil-normal-state-local-map (kbd "RET")
+	    'neotree-enter)
+	  (define-key evil-normal-state-local-map (kbd "g")
+	    'neotree-refresh)
+	  (define-key evil-normal-state-local-map (kbd "n")
+	    'neotree-next-line)
+	  (define-key evil-normal-state-local-map (kbd "p")
+	    'neotree-previous-line)
+	  (define-key evil-normal-state-local-map (kbd "A")
+	    'neotree-stretch-toggle)
+	  (define-key evil-normal-state-local-map (kbd "H")
+	    'neotree-hidden-file-toggle))))
 
 
 
@@ -94,28 +100,28 @@
 
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"e"  '(eval-buffer :which-key "eval-buffer"))
 
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"TAB"  '(evil-switch-to-windows-last-buffer
 		 :which-key "window-last-buff"))
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"SPC"  '(helm-M-x :which-key "M-x"))
 
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"p"  '(projectile-command-map :which-key "projectile prefix"))
@@ -127,7 +133,7 @@
 	"'" '(shell :which-key "shell"))
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"b"  '(:ignore t
@@ -151,7 +157,7 @@
 	    :which-key "toggle paragraph"))
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"f"  '(:ignore t :which-key "general")
@@ -162,7 +168,7 @@
 	"ft" '(neotree :which-key "neotree"))
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"g"  '(:ignore t :which-key "git")
@@ -188,7 +194,7 @@
 
 
     (general-define-key
-	:states 'normal
+	:states '(normal emacs)
 	:keymaps 'override
 	:prefix "SPC"
 	"o"  '(:ignore t :which-key "org-stuff")
