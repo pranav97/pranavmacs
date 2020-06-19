@@ -165,7 +165,7 @@
 	"ff" '(find-file :which-key "find-file")
 	;; easier to search big folders with this 
 	"fh" '(helm-find-files :which-key "helm-find-files")
-	"ft" '(neotree :which-key "neotree"))
+	"ft" '(neotree-toggle :which-key "neotree-toggle"))
 
     (general-define-key
 	:states '(normal emacs)
