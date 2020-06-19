@@ -154,12 +154,14 @@
   (add-hook 'after-init-hook 'global-company-mode))
 
 ;; You need to install fringe-helper.el
-(require 'git-gutter-fringe)
-(set-face-foreground 'git-gutter-fr:modified "yellow")
-(set-face-foreground 'git-gutter-fr:added    "blue")
-(set-face-foreground 'git-gutter-fr:deleted  "white")
-(setq-default left-fringe-width  20)
-(setq git-gutter-fr:side 'left-fringe)
+(use-package git-gutter-fringe
+    :ensure t
+    :config 
+    (set-face-foreground 'git-gutter-fr:modified "yellow")
+    (set-face-foreground 'git-gutter-fr:added    "blue")
+    (set-face-foreground 'git-gutter-fr:deleted  "white")
+    (setq-default left-fringe-width  20)
+    (setq git-gutter-fr:side 'left-fringe))
 
 ;; this is the minibuffer stuff, the very last line on this buffer 
 (use-package ido
