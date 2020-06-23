@@ -21,13 +21,13 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "key_bindings.el"
  "init.el"
  "baas_auth_key"
  "baas.org"
  "config"
  "week1_orientation_meeting.org"
  "daily_meetings.org"
- "key_bindings.el"
  "todo.org"
  "day_2_orientation.org"
  "access.org"
@@ -35,9 +35,11 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/homes/raghavanp/.emacs.d/" (24305 20683 860225 0) "#init.el#" "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+ ("/homes/raghavanp/.emacs.d/" (24305 30392 361065 0) "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
 
- ("/homes/raghavanp/" (24305 17320 208086 0) ".ssh_add" ".profile" "temp/" ".repopickle_.gitconfig" ".gitconfig" ".repoconfig/" ".emacs-saves/" ".gnupg/" ".python-history" ".emacs.d/" ".wget-hsts" ".vim/" ".ssh/" ".tramp_history" ".viminfo" "pranav_bins/" ".rnd" ".baas/" ".cache/" ".bash_history" "../" "./")
+ ("/homes/raghavanp/" (24305 22141 984427 0) ".ssh_add" ".profile" "temp/" ".repopickle_.gitconfig" ".gitconfig" ".repoconfig/" ".emacs-saves/" ".gnupg/" ".python-history" ".emacs.d/" ".local/" ".wget-hsts" ".vim/" ".ssh/" ".tramp_history" ".viminfo" "pranav_bins/" ".rnd" ".baas/" ".cache/" ".bash_history" "../" "./")
+
+ ("/b/workspace/pranav_sb/cevo/picd/pic_specific/picd-app/src/" (24305 15905 129524 64000) "picd_render.yang" "../" "picd.cpp" "./" "Makefile.inc")
 
  ("/homes/raghavanp/temp/" (24305 17353 648521 0) "emacs-26.3/" "emacs-26.3.tar.gz" "../" "./")
 

@@ -47,6 +47,7 @@
 
 (use-package xcscope
 	 :ensure t
+	 :defer t
 	 :config
 	 (cscope-setup))
 
@@ -56,6 +57,7 @@
 ;; helm configurations
 ;; helm stuff
 (use-package helm-config
+  :defer t
   :config
     (helm-mode 1)
     ;; projectile locate in OS x
@@ -74,11 +76,18 @@
     (helm-projectile-on))
 
 
-(use-package org-evil :ensure t)
-(use-package magit :ensure t)
+(use-package org-evil
+  :ensure t
+  :defer t)
+
+(use-package magit
+  :ensure t
+  :defer t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
-(use-package which-key :ensure t
+(use-package which-key
+    :ensure t
+    :defer t
     :config
     (which-key-mode)
     (which-key-setup-minibuffer))
