@@ -47,7 +47,6 @@
 
 (use-package xcscope
 	 :ensure t
-	 :defer t
 	 :config
 	 (cscope-setup))
 
@@ -160,10 +159,10 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
-(use-package company
-  :ensure t
-  :init
-  (add-hook 'after-init-hook 'global-company-mode))
+;; (use-package company
+;;   :ensure t
+;;   :init
+;;   (add-hook 'after-init-hook 'global-company-mode))
 
 ;; You need to install fringe-helper.el
 (use-package git-gutter-fringe

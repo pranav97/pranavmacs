@@ -1,4 +1,3 @@
-
 ;; mostly unused emacs keybindings.
 
 ;; default find, mx, bookmarks and buffers list be gone
@@ -16,17 +15,13 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 (global-set-key (kbd "<f12>") 'evil-mode)
 
-
 ;; auto-indentation
 (global-set-key "\C-m" 'newline-and-indent)
-
-
 
 ;; mapping windows + numbers to the winum like command in chrome
 (setq winum-keymap
     (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-`") 'winum-select-window-by-number)
-    (define-key map (kbd "C-²") 'winum-select-window-by-number)
     (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
     (define-key map (kbd "M-1") 'winum-select-window-1)
     (define-key map (kbd "M-2") 'winum-select-window-2)
@@ -42,13 +37,13 @@
     :ensure t
     :config
     (evil-mode 1)
+    (setq evil-default-state 'normal)
     (evil-set-initial-state 'fundamental-mode 'emacs)
-    (evil-set-initial-state 'neotree-mode 'emacs)
+    ;; (evil-set-initial-state 'neotree-mode 'emacs)
     (evil-set-initial-state 'dired-mode 'emacs)
 
     ;; need that page up usig control key
     (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-    (define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
     ;; Make evil-mode up/down operate in screen lines instead of logical lines
     (define-key evil-motion-state-map "j" 'evil-next-visual-line)
     (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
@@ -58,52 +53,21 @@
 
 
 ;; neo tree specific keybindings
-(use-package neotree :ensure t
-    :config
-    (add-hook 'neotree-mode-hook
-	(lambda ()
-	  (define-key evil-normal-state-local-map (kbd "w")
-	    'evil-window-right)
-	  (define-key evil-normal-state-local-map (kbd "f")
-	    'neotree-change-root)
-
-	    ;; standard bindings
-	  (define-key evil-normal-state-local-map (kbd "TAB")
-	    'neotree-enter)
-	  (define-key evil-normal-state-local-map (kbd "SPC")
-	    'neotree-quick-look)
-	  (define-key evil-normal-state-local-map (kbd "q")
-	    'neotree-hide)
-	  (define-key evil-normal-state-local-map (kbd "RET")
-	    'neotree-enter)
-	  (define-key evil-normal-state-local-map (kbd "g")
-	    'neotree-refresh)
-	  (define-key evil-normal-state-local-map (kbd "n")
-	    'neotree-next-line)
-	  (define-key evil-normal-state-local-map (kbd "p")
-	    'neotree-previous-line)
-	  (define-key evil-normal-state-local-map (kbd "A")
-	    'neotree-stretch-toggle)
-	  (define-key evil-normal-state-local-map (kbd "H")
-	    'neotree-hidden-file-toggle))))
-
+(use-package neotree
+    :ensure t
+    :defer t)
 
 
 ;; trying to get some normal keybindings with leader key space.
-(use-package general :ensure t
+(use-package general
+    :ensure t
     :config
     (general-evil-setup t)
-
+    
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
     (general-nmap "SPC C" (general-simulate-key "C-c"))
 
-
-    (general-define-key
-	:states '(normal emacs)
-	:keymaps 'override
-	:prefix "SPC"
-	"e"  '(eval-buffer :which-key "eval-buffer"))
 
 
     (general-define-key
