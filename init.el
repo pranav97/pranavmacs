@@ -217,8 +217,11 @@
  '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
-    (xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
- '(tool-bar-mode nil))
+    (unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+ '(tool-bar-mode nil)
+ '(which-key-dont-use-unicode t)
+ '(which-key-mode t)
+ '(which-key-separator "': '"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
