@@ -9,6 +9,9 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+;; removes 'newer byte compiled error'
+(setq load-prefer-newer t)
+
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 (auto-save-visited-mode)
@@ -129,17 +132,17 @@
 
 
 ;; themes
-(use-package ample-theme
-  :init (progn
-	    (load-theme 'ample t t)
-	    (load-theme 'ample-flat t t)
-	    (load-theme 'ample-light t t)
-	    ;; (enable-theme 'ample-light)
-	    (enable-theme 'ample)
-	    (custom-theme-set-faces 'ample
-		`(region ((t :background "#5c2556")))))
-  :defer t
-  :ensure t)
+;; (use-package ample-theme
+;;   :init (progn
+;; 	    (load-theme 'ample t t)
+;; 	    (load-theme 'ample-flat t t)
+;; 	    (load-theme 'ample-light t t)
+;; 	    ;; (enable-theme 'ample-light)
+;; 	    (enable-theme 'ample)
+;; 	    (custom-theme-set-faces 'ample
+;; 		`(region ((t :background "#5c2556")))))
+;;   :defer t
+;;   :ensure t)
 
 
 
@@ -203,6 +206,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default)))
  '(helm-completion-style (quote emacs))
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
@@ -217,7 +223,7 @@
  '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
-    (unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
  '(which-key-mode t)
@@ -227,7 +233,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "gray13" :foreground "#bdbdb3" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "nil" :family "Menlo"))))
  '(cursor ((t (:background "#ffff00"))))
  '(git-gutter:modified ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))

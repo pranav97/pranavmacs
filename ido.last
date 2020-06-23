@@ -1,0 +1,94 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/homes/" . "raghavanp/")
+ ("/baas/raghavanp/" . "pranav/")
+ ("/baas/" . "raghavanp/")
+ ("/sshx:2_baas:" . ".baas/")
+ ("/sshx:2_baas:/homes/" . "raghavanp/")
+ ("/Users/raghavanp/" . ".ssh/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/homes/raghavanp/.emacs.d/"
+ "/sshx:2_baas:.baas/"
+ "/Users/raghavanp/org_files/"
+ "/Users/raghavanp/.ssh/"
+ "/Users/raghavanp/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "baas_auth_key"
+ "baas.org"
+ "config"
+ "week1_orientation_meeting.org"
+ "daily_meetings.org"
+ "key_bindings.el"
+ "todo.org"
+ "day_2_orientation.org"
+ "access.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/homes/raghavanp/.emacs.d/" (24305 20683 860225 0) "#init.el#" "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+
+ ("/homes/raghavanp/" (24305 17320 208086 0) ".ssh_add" ".profile" "temp/" ".repopickle_.gitconfig" ".gitconfig" ".repoconfig/" ".emacs-saves/" ".gnupg/" ".python-history" ".emacs.d/" ".wget-hsts" ".vim/" ".ssh/" ".tramp_history" ".viminfo" "pranav_bins/" ".rnd" ".baas/" ".cache/" ".bash_history" "../" "./")
+
+ ("/homes/raghavanp/temp/" (24305 17353 648521 0) "emacs-26.3/" "emacs-26.3.tar.gz" "../" "./")
+
+ ("/homes/raghavanp/temp/emacs-26.3/" (24305 17887 676217 0) "Makefile" "config.status" "config.log" "aclocal.m4" "m4/" "configure.ac" "INSTALL" "ChangeLog.1" "leim/" "admin/" "ChangeLog.2" "make-dist" "ChangeLog.3" "nt/" "README" "msdos/" "site-lisp/" ".dir-locals.el" "ChangeLog" "config.bat" "etc/" "doc/" "oldXMenu/" "CONTRIBUTE" "lisp/" "autogen.sh" "configure" "lib/" "build-aux/" "BUGS" "src/" "nextstep/" "modules/" "info/" "lwlib/" "Makefile.in" "COPYING" "lib-src/" "../" "./")
+
+ ("/homes/" (24305 16883 636363 334000) "taalexan/" "zyuan/" "adeshmukh/" "vkoteeswaran/" "raghavanp/" "kishoret/" "plondhe/" "prajesh/" "sainath/" "ysripathi/" "sanketvc/" "jmyla/" "mskerritt/" "../" "./")
+
+ ("/b/" (24299 42701 183339 413000) "./" "../" "workspace/")
+
+ ("/b/workspace/" (24305 11705 747204 16000) "pranav_sb/" "../" "./" "lost+found/" "emacs-26.3.tar.gz" "emacs-26.3/" "config_cpy.txt" "scm_id_rsa.pub" ".baas-user.env")
+
+ ("/b/workspace/pranav_sb/" (24305 15904 985523 75000) "sandbox-tools/" "component-manifest/" "csets/" "project-config/" "../" "cevo/" "build-infra/" "./" ".repo/" "emake.data" "logs/" "packages/" "meta-ui-32b/" "devtest/" "toolchain-assist/" "evo/" "Makefile" ".repo.bare/")
+
+ ("/b/workspace/pranav_sb/cevo/" (24305 15904 985523 75000) "../" "./" "picd/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/" (24305 16614 146444 579000) "../" "./" "common/" "pic_specific/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/" (24305 16614 274445 489000) "libXcvr/" "libWioSerdesAapl/" "libwaniozx/" "libwaniobt/" "libmacpcs/" "libpic-util/" "libwanio/" "../" ".gitignore" "libpic-cli/" "libWioSerdes/" "./" "libPicDriver/" "libtransportfault/" "libIfDamping/" "libTransport/" "libpic-junos-ulc/" "libPicUI/" "libpic-asic/" "cmd/" ".git/" "libpic-alarm/" "libpic-otnframer/" "libWioSerdesZx/" "libpic-retimer/" "meta/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/cmd/" (24305 16614 238445 233000) "export.mk" "../" "./" "src/" "Makefile" "meta/")
+
+ ("/b/workspace/tot/" (24296 5511 170974 741000) "picd/" "csets/" "cevo/" "platform-utils/" "Makefile" "meta-ui-32b/" "packages/" "evo/" "devtest/" "../" "logs/" "build-infra/" "emake.data" "project-config/" "component-manifest/" "toolchain-assist/" ".repo.bare/" ".repo/" "sandbox-tools/" "./")
+
+ ("/b/workspace/tot/cevo/" (24296 5420 381070 132000) "picd/" "../" "./")
+
+ ("/b/workspace/tot/cevo/picd/" (24296 5420 589074 495000) "common/" "../" "pic_specific/" "./")
+
+ ("/b/workspace/tot/cevo/picd/pic_specific/" (24296 5420 733077 516000) "libObanPic/" "libredbull-pic/" "libAttellaPic/" "libbolan-pic/" "libardbeg-pic/" "libpic-mtip3if/" "libjulc-ipc/" "libpic-brcm/" "libdeanston-pic/" "libscapa-pic/" "picd-app/" ".gitignore" "liblazurite-pic/" "../" "libpic-ledx/" "libBracklaPic/" ".git/" "libpic-pm/" "libpic-trinitypio/" "meta/" "libpic-bcm-retimer/" "./" "libpic-inphi1150xx/" "libalfaromeo-pic/")
+
+ ("/b/workspace/tot/cevo/picd/pic_specific/picd-app/" (24296 5420 737077 600000) "picd-app-config/" "Makefile" "../" "meta/" "src/" "./" "export.mk" "unit-test/")
+
+ ("/b/workspace/tot/cevo/picd/pic_specific/picd-app/src/" (24300 63773 911132 101000) "Makefile.inc" "../" "picd_render.yang" "./" "picd.cpp")
+
+ ("/baas/raghavanp/pranav/" (24304 65385 655037 614000) "../" "./" "lost+found/" "emacs-26.3.tar.gz" "emacs-26.3/" ".baas-user.env")
+
+ ("/baas/raghavanp/" (24299 42704 967367 844000) "./" "pranav/" "../")
+
+ ("/baas/" (24299 42704 963367 813000) "raghavanp/" "./" "../")
+
+ ("/Users/raghavanp/" (24304 60047 121728 461000) ".viminfo" ".bash_history" ".gitconfig" ".python_history" "Downloads/" ".oh-my-zsh/" ".spacemacs" "Documents/" "spacemacs/" ".Trash/" ".emacs" "Movies/" ".ssh/" "Public/" ".bash_sessions/" ".cups/" ".emacs.d/" "OneDrive - Juniper Networks, Inc/" ".emacs-profiles.el" ".lesshst" "Library/" "Desktop/" ".zsh_history" "code/" ".zcompdump-raghavanp-mbp-5.7.1" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" "org_files/" ".DS_Store" "Music/" ".emacs-saves/" "../" "./")
+
+ ("/Users/raghavanp/.emacs.d/" (24304 57962 931782 758000) ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "ido.last" ".#ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+
+ ("/Users/raghavanp/.ssh/" (24304 56977 542506 51000) "known_hosts" "id_rsa.pub" "id_rsa" "config" "../" "./")
+
+ ("/Users/raghavanp/org_files/" (24304 55188 513747 616000) "baas.org" "week1_orientation_meeting.org" "tmux.org" "daily_meetings.org" "getting_into_bass.org" "questions_for_sanket.org" "#getting_into_bass.org#" "day_2_orientation.org" "technologies.org" "todo.org" "access.org" "easy_connect.org" "../" "./")
+
+ ("/Users/" (24270 63525 0 0) "Shared/" ".localized" "raghavanp/" "../" "./")
+
+ ("/Users/raghavanp/code/" (24301 4813 609892 813000) "chemacs/" "juniper_post.rtf" ".emacs-profiles.el" "temp/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
