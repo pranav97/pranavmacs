@@ -1,11 +1,5 @@
 (require 'package)
 
-;; (setq package-archives 
-;;   '(("gnu" . "http://elpa.gnu.org/packages/")
-;;     ("marmalade" . "http://marmalade-repo.org/packages/")
-;; 
-;;     ("melpa" . "http://melpa.org/packages/")))
-
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -93,8 +87,11 @@
 	;; )))
 
 (use-package helm-config
-  :ensure t
-  :defer t)
+    :config
+    (helm-mode 1)
+    (use-package helm-projectile
+	:config
+	(helm-projectile-on)))
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags :ensure t
