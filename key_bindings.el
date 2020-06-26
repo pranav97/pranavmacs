@@ -39,7 +39,7 @@
     (evil-mode 1)
     (setq evil-default-state 'normal)
     (evil-set-initial-state 'fundamental-mode 'emacs)
-    ;; (evil-set-initial-state 'neotree-mode 'emacs)
+    (evil-set-initial-state 'neotree-mode 'emacs)
     (evil-set-initial-state 'dired-mode 'emacs)
 
     ;; need that page up usig control key
@@ -57,6 +57,8 @@
     :ensure t
     :defer t)
 
+    
+
 
 ;; trying to get some normal keybindings with leader key space.
 (use-package general
@@ -66,7 +68,7 @@
     
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
-    (general-nmap "SPC C" (general-simulate-key "C-c"))
+    (general-nmap "SPC c" (general-simulate-key "C-c"))
 
 
 
@@ -113,11 +115,11 @@
 	:states '(normal visual)
 	:keymaps 'override
 	:prefix "SPC"
-	"c"  '(:ignore t
+	"/"  '(:ignore t
 		:which-key "comment")
-	"cl" '(evilnc-comment-or-uncomment-lines
+	"/l" '(evilnc-comment-or-uncomment-lines
 	    :which-key "toggle line")
-	"cp" '(evilnc-comment-or-uncomment-paragraphs
+	"/p" '(evilnc-comment-or-uncomment-paragraphs
 	    :which-key "toggle paragraph"))
 
     (general-define-key
@@ -140,7 +142,9 @@
 	"gp" '(magit-push :which-key "push")
 	"gP" '(magit-pull :which-key "pull")
 	"gl" '(magit-log-all :which-key "log")
-	"gg" '(git-gutter :which-key "git gutter"))
+	"gg" '(git-gutter :which-key "git gutter")
+	"gn" '(git-gutter:next-hunk :which-key "git-gutter-next-hunk")
+	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk"))
 
 
     (general-define-key

@@ -1,14 +1,20 @@
 (require 'package)
 
-(setq package-archives 
-  '(("gnu" . "http://elpa.gnu.org/packages/")
-    ("marmalade" . "http://marmalade-repo.org/packages/")
-    ("melpa" . "http://melpa.org/packages/")))
+;; (setq package-archives 
+;;   '(("gnu" . "http://elpa.gnu.org/packages/")
+;;     ("marmalade" . "http://marmalade-repo.org/packages/")
+;; 
+;;     ("melpa" . "http://melpa.org/packages/")))
+
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/")))
+
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
 
 ;; BUILT IN STUFF 
+;; this is for xterm to see mouse 
+(xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
 (setq load-prefer-newer t)
 
@@ -55,26 +61,6 @@
 
 ;; helm configurations
 ;; helm stuff
-(use-package helm-config
-  :defer t
-  :config
-    (helm-mode 1)
-    ;; projectile locate in OS x
-    (setq helm-locate-command
-	"glocate %s %s"
-	helm-locate-create-db-command
-	"gupdatedb --output='%s' --localpaths='%s'")
-
-    (setq helm-locate-project-list
-	(list "/Users/pranav_raghavan/emacs_config/"))
-
-    ;; required to track visited projects and put them in helm-projectile-switch
-    (projectile-global-mode)
-    (require 'helm-projectile)
-    (setq projectile-completion-system 'helm)
-    (helm-projectile-on))
-
-
 (use-package org-evil
   :ensure t
   :defer t)
@@ -94,17 +80,21 @@
 
 
 ;; This puts a line indicator for 80 chars
-(use-package fill-column-indicator :ensure t
-    :config
-    (add-hook 'prog-mode-hook (lambda () 
-	(setq-default fill-column 80) 
-	(setq fci-rule-width 1)
-	(setq fci-rule-color "orange")
-	(fci-mode 1)
+;; (use-package fill-column-indicator :ensure t
+;;     :config
+;;     (add-hook 'prog-mode-hook (lambda () 
+;; 	(setq-default fill-column 80) 
+;; 	(setq fci-rule-width 1)
+;; 	(setq fci-rule-color "orange")
+	:; run this command to turn it on 
+	;; (fci-mode 1)
 	;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 	;; (global-fci-mode 1)
-	)))
+	;; )))
 
+(use-package helm-config
+  :ensure t
+  :defer t)
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags :ensure t
@@ -126,8 +116,11 @@
 
 
 
-(use-package spaceline :ensure t
-  :config
+(use-package spaceline
+  :ensure t
+  :config 
+ 
+
   (use-package spaceline-config
     :config
     (spaceline-helm-mode 1)
@@ -140,18 +133,16 @@
 
 
 ;; themes
-;; (use-package ample-theme
-;;   :init (progn
-;; 	    (load-theme 'ample t t)
-;; 	    (load-theme 'ample-flat t t)
-;; 	    (load-theme 'ample-light t t)
-;; 	    ;; (enable-theme 'ample-light)
-;; 	    (enable-theme 'ample)
-;; 	    (custom-theme-set-faces 'ample
-;; 		`(region ((t :background "#5c2556")))))
-;;   :defer t
-;;   :ensure t)
-
+(use-package ample-theme
+   :defer t
+   :ensure t
+   :init (progn
+ 	    (load-theme 'ample t t)
+ 	    (load-theme 'ample-flat t t)
+ 	    (load-theme 'ample-light t t)
+ 	    (enable-theme 'ample)
+ 	    (custom-theme-set-faces 'ample
+ 		`(region ((t :background "#5c2556"))))))
 
 
 (use-package rainbow-delimiters
@@ -165,14 +156,20 @@
 ;;   (add-hook 'after-init-hook 'global-company-mode))
 
 ;; You need to install fringe-helper.el
-(use-package git-gutter-fringe
-    :ensure t
-    :config 
-    (set-face-foreground 'git-gutter-fr:modified "yellow")
-    (set-face-foreground 'git-gutter-fr:added    "blue")
-    (set-face-foreground 'git-gutter-fr:deleted  "white")
-    (setq-default left-fringe-width  20)
-    (setq git-gutter-fr:side 'left-fringe))
+;; (use-package git-gutter-fringe
+;;     :ensure t
+;;     :config 
+;;     (set-face-foreground 'git-gutter-fr:modified "yellow")
+;;     (set-face-foreground 'git-gutter-fr:added    "blue")
+;;     (set-face-foreground 'git-gutter-fr:deleted  "white")
+;;     (setq-default left-fringe-width  20)
+;;     (setq git-gutter-fr:side 'left-fringe))
+
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode 1))
+  
 
 ;; this is the minibuffer stuff, the very last line on this buffer 
 (use-package ido
@@ -216,26 +213,23 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default)))
+    ("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default)))
+ '(git-gutter:modified-sign "|")
+ '(git-gutter:update-interval 0)
+ '(global-git-gutter-mode t)
  '(helm-completion-style (quote emacs))
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
  '(helm-gtags-path-style (quote relative))
- '(org-agenda-files (quote ("~/Documents/org_files/todo-list.org")))
- '(org-pomodoro-clock-break nil)
- '(org-pomodoro-killed-sound t)
- '(org-pomodoro-short-break-sound-p nil)
- '(org-pomodoro-start-sound
-   "/Users/pranavraghavan/.emacs.d/elpa/org-pomodoro-20190530.1445/resources/bell.wav")
- '(org-pomodoro-ticking-frequency 120)
- '(org-pomodoro-ticking-sound-p t)
+ '(neo-window-fixed-size nil)
  '(package-selected-packages
    (quote
-    (list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
  '(which-key-mode t)
- '(which-key-separator "': '"))
+ '(which-key-separator "': '")
+ '(xterm-mouse-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -244,14 +238,13 @@
  '(cursor ((t (:background "#ffff00"))))
  '(git-gutter:modified ((t (:foreground "deep sky blue" :weight bold))))
  '(line-number-current-line ((t (:inherit line-number :stipple nil :background "#ffff00" :foreground "black"))))
- '(org-pomodoro-mode-line ((t (:background "grey100" :foreground "orange red"))))
- '(rainbow-delimiters-base-face ((t (:inherit nil :weight extra-bold))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "light slate blue"))))
+ '(rainbow-delimiters-base-face ((t (:inherit nil :weight bold))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#de6ad6"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "LightSkyBlue"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "light sea green"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "LightGreen"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "cyan"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#dffa48"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#f2dea4"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "light pink"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "grey80")))))

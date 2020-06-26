@@ -2,6 +2,8 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/b/workspace/pranav_sb/" . "picd/")
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/evoapp/lib/" . "libevo-app/")
  ("/homes/" . "raghavanp/")
  ("/baas/raghavanp/" . "pranav/")
  ("/baas/" . "raghavanp/")
@@ -13,6 +15,7 @@
 ;; ----- ido-work-directory-list -----
 (
  "/homes/raghavanp/.emacs.d/"
+ "/b/workspace/pranav_sb/cevo/picd/common/libPicUI/src/"
  "/sshx:2_baas:.baas/"
  "/Users/raghavanp/org_files/"
  "/Users/raghavanp/.ssh/"
@@ -22,24 +25,58 @@
 ;; ----- ido-work-file-list -----
 (
  "key_bindings.el"
+ "picd_cli.hpp"
+ "picd_cli.cpp"
+ "picd-cli_render.yang"
+ "picd_issu_cli_mt.yang"
+ "picd_cli_mt.yang"
+ "oc_interface_render.yang"
  "init.el"
+ "Makefile"
  "baas_auth_key"
- "baas.org"
- "config"
- "week1_orientation_meeting.org"
- "daily_meetings.org"
- "todo.org"
- "day_2_orientation.org"
- "access.org"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/homes/raghavanp/.emacs.d/" (24305 30392 361065 0) "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+ ("/homes/raghavanp/.emacs.d/" (24310 20628 774938 0) "#init.el#" ".#init.el" "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
 
- ("/homes/raghavanp/" (24305 22141 984427 0) ".ssh_add" ".profile" "temp/" ".repopickle_.gitconfig" ".gitconfig" ".repoconfig/" ".emacs-saves/" ".gnupg/" ".python-history" ".emacs.d/" ".local/" ".wget-hsts" ".vim/" ".ssh/" ".tramp_history" ".viminfo" "pranav_bins/" ".rnd" ".baas/" ".cache/" ".bash_history" "../" "./")
+ ("/b/workspace/pranav_sb/cevo/picd/common/libPicUI/src/" (24309 14004 172981 52000) "picd_simfault_cli_mt.yang" "picd_telemetry_cli.cpp" "picd-cli_simfault_render.yang" "picd_mtip_cli.cpp" "interface_mt.yang" "../" "./" "picd_simfault_cli.cpp" "picd_issu_cli.cpp" "autodeps.mk" "picd-cli_mtip_render.yang" "picd_mtip_cli.hpp" "picd_issu_cli.hpp" "picd_mtip_cli_mt.yang" "picd_telemetry_cli.hpp" "picd_simfault_cli.hpp" "Makefile.inc" "picd-cli_simfault.yang" "picd_issu_cli_mt.yang" "picd-cli_issu_render.yang" "picd_cli.hpp" "picd-cli_render.yang" "picd_cli_mt.yang" "picd_cli.cpp" "oc_interface_render.yang")
 
- ("/b/workspace/pranav_sb/cevo/picd/pic_specific/picd-app/src/" (24305 15905 129524 64000) "picd_render.yang" "../" "picd.cpp" "./" "Makefile.inc")
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/picd/common/libPicUI/src/" (24308 62774 826080 172000) "picd_simfault_cli_mt.yang" "picd_telemetry_cli.cpp" "picd-cli_simfault_render.yang" "picd_mtip_cli.cpp" "interface_mt.yang" "../" "./" "picd_simfault_cli.cpp" "picd_issu_cli.cpp" "autodeps.mk" "picd-cli_mtip_render.yang" "picd_mtip_cli.hpp" "picd_issu_cli.hpp" "picd_mtip_cli_mt.yang" "picd_telemetry_cli.hpp" "picd_simfault_cli.hpp" "Makefile.inc" "picd-cli_simfault.yang" "picd_issu_cli_mt.yang" "picd-cli_issu_render.yang" "picd_cli.hpp" "picd-cli_render.yang" "picd_cli_mt.yang" "picd_cli.cpp" "oc_interface_render.yang")
+
+ ("/b/workspace/pranav_sb/" (24307 36027 54273 648000) "cscope.out" "sandbox-tools/" "component-manifest/" "csets/" "project-config/" "platform-utils/" "../" "obj-common/" "cevo/" "build-infra/" "./" ".repo/" "cscope.files" "emake.data" "logs/" "GTAGS" "packages/" "meta-ui-32b/" "devtest/" "toolchain-assist/" "evo/" "Makefile" "GPATH" "picd/" "GRTAGS" ".repo.bare/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/libPicUI/" (24305 16614 250445 318000) "export.mk" "../" "./" "src/" "include/" "Makefile" "meta/")
+
+ ("/homes/raghavanp/" (24307 34928 673946 0) ".ssh_add" ".profile" "temp/" ".repopickle_.gitconfig" ".gitconfig" ".repoconfig/" ".emacs-saves/" ".gnupg/" ".python-history" ".emacs.d/" ".local/" ".wget-hsts" ".vim/" ".ssh/" ".tramp_history" ".viminfo" "pranav_bins/" ".rnd" ".baas/" ".cache/" ".bash_history" "../" "./")
+
+ ("/b/workspace/pranav_sb/cevo/picd/pic_specific/picd-app/src/" (24307 29976 286219 473000) "picd_render.yang" "../" "picd.cpp" "./" "Makefile.inc")
+
+ ("/b/workspace/pranav_sb/picd/xcvr/" (24306 24800 908616 508000) "../" "./" "plugin/")
+
+ ("/b/workspace/pranav_sb/picd/" (24306 24846 372955 478000) "../" "xcvr/" "./" "xcvr-db/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/libPicDriver/" (24305 16614 246445 291000) "export.mk" "../" "./" "unit-test/" "src/" "include/" "Makefile" "meta/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/libPicDriver/src/" (24307 30141 955461 165000) "PicMac.cpp" "PicManagerImpl.hpp" "tracepoints/" "SerdesImplLocal.cpp" "SerdesImplRemote.cpp" "Serdes.cpp" "PicAppStop.cpp" "Bus.cpp" "FpcManager.cpp" "Cli.cpp" "../" "PicString.cpp" "HoldTimer.cpp" "PicDebugCli.hpp" "PicZtpConfig.cpp" "PicAppManager.cpp" "Port.cpp" "PicHandler.cpp" "PortGroupImpl.hpp" "PortImpl.hpp" "./" "Pic.cpp" "PicAdapter.cpp" "PicIssuManager.cpp" "autodeps.mk" "PicManager.cpp" "PortSpeed.cpp" "FpcManagerImpl.hpp" "PicImpl.hpp" "PortLed.cpp" "PicController.cpp" "PicAlarmConfigEther.cpp" "Channel.cpp" "TrivialLed.cpp" "ChannelImpl.cpp" "PicConfig.cpp" "Fpga.cpp" "SerdesImplNone.cpp" "Makefile.inc" "PortCli.cpp" "SerdesMode.cpp" "SerdesImpl.cpp" "I2c.cpp" "python/" "LinkDegradeManager.cpp" "PortGroup.cpp" "IfdManager.cpp" "PicCmError.cpp" "PicDebugCli.cpp")
+
+ ("/b/workspace/pranav_sb/cevo/" (24306 31695 524144 773000) "../" "./" "evoapp/" "picd/")
+
+ ("/baas/raghavanp/pranav/pranav_sb/" (24306 44978 12512 123000) "cscope.out" "sandbox-tools/" "component-manifest/" "csets/" "project-config/" "platform-utils/" "../" "obj-common/" "cevo/" "build-infra/" "./" ".repo/" "cscope.files" "emake.data" "logs/" "GTAGS" "packages/" "meta-ui-32b/" "devtest/" "toolchain-assist/" "evo/" "Makefile" "GPATH" "picd/" "GRTAGS" ".repo.bare/")
+
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/evoapp/lib/libevo-app/" (24306 31695 628145 559000) "export.mk" "../" "./" "src/" "Makefile" "meta/")
+
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/evoapp/lib/" (24306 31695 648145 710000) "idmd_msg/" "indexallocater/" "libevo-idmdclient/" "libevo-gtest/" "libevo-idmd/" "librtdb/" "libshutdown/" "../" "evoinfra_msg/" "libevo-perf/" "libevo-nhtoken/" "libevo-appinfra/" "./" "object-select/" "zkserializer_demo_msg/" "libzooclient/" "libevoutil/" "libxapp/" "libevo-apptest/" "libevo-app/" "zkserializer/" "libevo-infra/" "filewatch/" "libpset/" "libzooutil/" "distributor-client/" "libevo-appinfo/" "object-query/" "libjunos-evoapp-ha/" "libluatable/")
+
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/evoapp/lib/libevoutil/" (24306 31695 640145 650000) "export.mk" "../" "./" "unit-test/" "src/" "include/" "Makefile" "test/" "meta/")
+
+ ("/baas/raghavanp/pranav/pranav_sb/cevo/evoapp/lib/libevoutil/src/" (24306 31695 636145 619000) "EvoAppHA.cpp" "EvoAppTopicDispatch.cpp" "../" "EvoAppTopic.cpp" "service_trace.h" "EvoProducerInfo.cpp" "EvoAppPingHandler.cpp" "./" "autodeps.mk" "service_tracepoints.tp" "EvoAppUtil.cpp" "EvoObjWriter.cpp" "Makefile.inc" "EvoObjPeriodicsMgr.cpp" "EvoAppDSLConfig.cpp" "EvoAppService.cpp" "EvoAppGroup.cpp")
+
+ ("/baas/raghavanp/pranav/" (24305 11705 747204 16000) "pranav_sb/" "../" "./" "lost+found/" "emacs-26.3.tar.gz" "emacs-26.3/" "config_cpy.txt" "scm_id_rsa.pub" ".baas-user.env")
+
+ ("/b/workspace/pranav_sb/cevo/picd/pic_specific/" (24305 15905 129524 64000) "libscapa-pic/" "libredbull-pic/" "libdeanston-pic/" "libjulc-ipc/" "../" ".gitignore" "libalfaromeo-pic/" "./" "libardbeg-pic/" "libpic-ledx/" "picd-app/" "libObanPic/" "liblazurite-pic/" "libpic-trinitypio/" "libbolan-pic/" "libpic-bcm-retimer/" "libpic-brcm/" ".git/" "libpic-inphi1150xx/" "libpic-pm/" "libAttellaPic/" "libpic-mtip3if/" "libBracklaPic/" "meta/")
+
+ ("/b/workspace/pranav_sb/cevo/picd/pic_specific/picd-app/" (24305 15905 129524 64000) "export.mk" "../" "./" "unit-test/" "picd-app-config/" "src/" "Makefile" "meta/")
 
  ("/homes/raghavanp/temp/" (24305 17353 648521 0) "emacs-26.3/" "emacs-26.3.tar.gz" "../" "./")
 
@@ -50,10 +87,6 @@
  ("/b/" (24299 42701 183339 413000) "./" "../" "workspace/")
 
  ("/b/workspace/" (24305 11705 747204 16000) "pranav_sb/" "../" "./" "lost+found/" "emacs-26.3.tar.gz" "emacs-26.3/" "config_cpy.txt" "scm_id_rsa.pub" ".baas-user.env")
-
- ("/b/workspace/pranav_sb/" (24305 15904 985523 75000) "sandbox-tools/" "component-manifest/" "csets/" "project-config/" "../" "cevo/" "build-infra/" "./" ".repo/" "emake.data" "logs/" "packages/" "meta-ui-32b/" "devtest/" "toolchain-assist/" "evo/" "Makefile" ".repo.bare/")
-
- ("/b/workspace/pranav_sb/cevo/" (24305 15904 985523 75000) "../" "./" "picd/")
 
  ("/b/workspace/pranav_sb/cevo/picd/" (24305 16614 146444 579000) "../" "./" "common/" "pic_specific/")
 
@@ -72,8 +105,6 @@
  ("/b/workspace/tot/cevo/picd/pic_specific/picd-app/" (24296 5420 737077 600000) "picd-app-config/" "Makefile" "../" "meta/" "src/" "./" "export.mk" "unit-test/")
 
  ("/b/workspace/tot/cevo/picd/pic_specific/picd-app/src/" (24300 63773 911132 101000) "Makefile.inc" "../" "picd_render.yang" "./" "picd.cpp")
-
- ("/baas/raghavanp/pranav/" (24304 65385 655037 614000) "../" "./" "lost+found/" "emacs-26.3.tar.gz" "emacs-26.3/" ".baas-user.env")
 
  ("/baas/raghavanp/" (24299 42704 967367 844000) "./" "pranav/" "../")
 
