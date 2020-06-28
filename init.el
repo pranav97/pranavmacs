@@ -41,9 +41,9 @@
 
 ;; remove some stuff that comes built into emacs
 (setq inhibit-startup-message t) 
-(toggle-scroll-bar -1) 
-(tool-bar-mode -1) 
-(menu-bar-mode -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode ) (menu-bar-mode  -1))
 
 (use-package xcscope
 	 :ensure t
@@ -70,21 +70,6 @@
     :config
     (which-key-mode)
     (which-key-setup-minibuffer))
-
-
-
-;; This puts a line indicator for 80 chars
-;; (use-package fill-column-indicator :ensure t
-;;     :config
-;;     (add-hook 'prog-mode-hook (lambda () 
-;; 	(setq-default fill-column 80) 
-;; 	(setq fci-rule-width 1)
-;; 	(setq fci-rule-color "orange")
-	:; run this command to turn it on 
-	;; (fci-mode 1)
-	;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-	;; (global-fci-mode 1)
-	;; )))
 
 (use-package helm-config
     :config
@@ -146,21 +131,6 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-
-;; (use-package company
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-company-mode))
-
-;; You need to install fringe-helper.el
-;; (use-package git-gutter-fringe
-;;     :ensure t
-;;     :config 
-;;     (set-face-foreground 'git-gutter-fr:modified "yellow")
-;;     (set-face-foreground 'git-gutter-fr:added    "blue")
-;;     (set-face-foreground 'git-gutter-fr:deleted  "white")
-;;     (setq-default left-fringe-width  20)
-;;     (setq git-gutter-fr:side 'left-fringe))
 
 (use-package git-gutter
   :ensure t
