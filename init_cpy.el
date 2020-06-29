@@ -7,6 +7,8 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+(when (fboundp 'winner-mode)
+    (winner-mode 1))
 ;; this is for xterm to see mouse 
 (xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
@@ -47,6 +49,7 @@
 
 (use-package xcscope
 	 :ensure t
+	 :defer t
 	 :config
 	 (cscope-setup))
 
@@ -60,8 +63,7 @@
   :defer t)
 
 (use-package magit
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
@@ -73,23 +75,12 @@
 
 
 
-;; This puts a line indicator for 80 chars
-;; (use-package fill-column-indicator :ensure t
-;;     :config
-;;     (add-hook 'prog-mode-hook (lambda () 
-;; 	(setq-default fill-column 80) 
-;; 	(setq fci-rule-width 1)
-;; 	(setq fci-rule-color "orange")
-	:; run this command to turn it on 
-	;; (fci-mode 1)
-	;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-	;; (global-fci-mode 1)
-	;; )))
-
 (use-package helm-config
+    :ensure t
     :config
     (helm-mode 1)
     (use-package helm-projectile
+        :ensure t
 	:config
 	(helm-projectile-on)))
 
@@ -107,6 +98,8 @@
 
 
 (use-package winum
+    :defer t
+    :ensure t
     :config
     (setq winum-auto-setup-mode-line nil)
     (winum-mode))
@@ -115,6 +108,7 @@
 
 (use-package spaceline
   :ensure t
+  :defer t
   :config 
  
 
@@ -125,11 +119,9 @@
     (spaceline-toggle-minor-modes-off)
     (spaceline-toggle-buffer-encoding-off)
     (spaceline-toggle-buffer-encoding-abbrev-off)
-    (setq powerline-default-separator 'rounded)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
-
-
+    (setq powerline-default-separator 'rounded) (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
 ;; themes
+
 (use-package ample-theme
    :defer t
    :ensure t
@@ -139,7 +131,7 @@
  	    (load-theme 'ample-light t t)
  	    (enable-theme 'ample)
  	    (custom-theme-set-faces 'ample
- 		`(region ((t :background "#00004d"))))))
+ 		`(region ((t :background "#5c2556"))))))
 
 
 (use-package rainbow-delimiters
@@ -147,23 +139,10 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
-;; (use-package company
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-company-mode))
-
-;; You need to install fringe-helper.el
-;; (use-package git-gutter-fringe
-;;     :ensure t
-;;     :config 
-;;     (set-face-foreground 'git-gutter-fr:modified "yellow")
-;;     (set-face-foreground 'git-gutter-fr:added    "blue")
-;;     (set-face-foreground 'git-gutter-fr:deleted  "white")
-;;     (setq-default left-fringe-width  20)
-;;     (setq git-gutter-fr:side 'left-fringe))
 
 (use-package git-gutter
   :ensure t
+  :defer t
   :config
   (global-git-gutter-mode 1))
   
@@ -171,6 +150,7 @@
 ;; this is the minibuffer stuff, the very last line on this buffer 
 (use-package ido
     :ensure t
+    :defer t
     :config 
     (ido-mode t)
     (setq ido-enable-flex-matching t))

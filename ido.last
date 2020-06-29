@@ -15,10 +15,10 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/raghavanp/.emacs.d/"
- "/Users/raghavanp/.emacs.d.bak/"
  "/homes/raghavanp/.emacs.d/"
  "/b/workspace/pranav_sb/cevo/picd/common/libPicUI/src/"
+ "/Users/raghavanp/.emacs.d/"
+ "/Users/raghavanp/.emacs.d.bak/"
  "/sshx:2_baas:.baas/"
  "/Users/raghavanp/org_files/"
  "/Users/raghavanp/.ssh/"
@@ -26,20 +26,24 @@
 
 ;; ----- ido-work-file-list -----
 (
- "init.el"
  "key_bindings.el"
- "picd_cli.hpp"
+ "init_cpy.el"
  "picd_cli.cpp"
- "picd-cli_render.yang"
- "picd_issu_cli_mt.yang"
  "picd_cli_mt.yang"
+ "picd-cli_render.yang"
+ "init.el"
+ "picd_cli.hpp"
+ "picd_issu_cli_mt.yang"
  "oc_interface_render.yang"
  "Makefile"
- "baas_auth_key"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/homes/raghavanp/.emacs.d/" (24310 30176 128032 0) "#init.el#" "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+
+ ("/b/workspace/pranav_sb/cevo/picd/common/libPicUI/src/" (24310 23596 197152 848000) "picd_simfault_cli_mt.yang" "picd_telemetry_cli.cpp" "picd-cli_simfault_render.yang" "picd_mtip_cli.cpp" "interface_mt.yang" "../" "./" "picd_simfault_cli.cpp" "picd_issu_cli.cpp" "autodeps.mk" "picd-cli_mtip_render.yang" "picd_mtip_cli.hpp" "picd_issu_cli.hpp" "picd_mtip_cli_mt.yang" "picd_telemetry_cli.hpp" "picd_simfault_cli.hpp" "Makefile.inc" "picd-cli_simfault.yang" "picd_issu_cli_mt.yang" "picd-cli_issu_render.yang" "picd_cli.hpp" "picd-cli_render.yang" "picd_cli_mt.yang" "picd_cli.cpp" "oc_interface_render.yang")
+
  ("/Users/raghavanp/.ssh/" (24306 42995 769166 697000) "known_hosts" "id_rsa.pub" "id_rsa" "config" "../" "./")
 
  ("/Users/raghavanp/org_files/" (24309 22509 310261 294000) "baas.org" "week1_orientation_meeting.org" "tmux.org" "daily_meetings.org" "next_steps.org" "getting_into_bass.org" "questions_for_sanket.org" "#getting_into_bass.org#" "day_2_orientation.org" "technologies.org" "todo.org" "access.org" "easy_connect.org" "../" "./")
@@ -49,10 +53,6 @@
  ("/Users/raghavanp/.emacs.d.bak/" (24309 24982 662580 169000) ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
 
  ("/Users/raghavanp/" (24310 21382 232174 490000) ".viminfo" ".bash_history" ".gitconfig" ".python_history" "Downloads/" ".oh-my-zsh/" ".spacemacs" "Documents/" "spacemacs/" ".Trash/" ".emacs.d.bak/" ".emacs" "Movies/" ".ssh/" "Public/" ".bash_sessions/" ".cups/" ".emacs.d/" "OneDrive - Juniper Networks, Inc/" ".emacs-profiles.el" ".lesshst" "Library/" "Desktop/" ".zsh_history" "code/" ".zcompdump-raghavanp-mbp-5.7.1" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" "org_files/" ".DS_Store" "Music/" ".emacs-saves/" "../" "./")
-
- ("/homes/raghavanp/.emacs.d/" (24310 20628 774938 0) "#init.el#" ".#init.el" "var/" ".git/" "elpa/" "network-security.data" ".gitignore" "init.el" "auto-save-list/" "transient/" "tramp" "projectile-bookmarks.eld" "key_bindings.el" "eshell/" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
-
- ("/b/workspace/pranav_sb/cevo/picd/common/libPicUI/src/" (24309 14004 172981 52000) "picd_simfault_cli_mt.yang" "picd_telemetry_cli.cpp" "picd-cli_simfault_render.yang" "picd_mtip_cli.cpp" "interface_mt.yang" "../" "./" "picd_simfault_cli.cpp" "picd_issu_cli.cpp" "autodeps.mk" "picd-cli_mtip_render.yang" "picd_mtip_cli.hpp" "picd_issu_cli.hpp" "picd_mtip_cli_mt.yang" "picd_telemetry_cli.hpp" "picd_simfault_cli.hpp" "Makefile.inc" "picd-cli_simfault.yang" "picd_issu_cli_mt.yang" "picd-cli_issu_render.yang" "picd_cli.hpp" "picd-cli_render.yang" "picd_cli_mt.yang" "picd_cli.cpp" "oc_interface_render.yang")
 
  ("/baas/raghavanp/pranav/pranav_sb/cevo/picd/common/libPicUI/src/" (24308 62774 826080 172000) "picd_simfault_cli_mt.yang" "picd_telemetry_cli.cpp" "picd-cli_simfault_render.yang" "picd_mtip_cli.cpp" "interface_mt.yang" "../" "./" "picd_simfault_cli.cpp" "picd_issu_cli.cpp" "autodeps.mk" "picd-cli_mtip_render.yang" "picd_mtip_cli.hpp" "picd_issu_cli.hpp" "picd_mtip_cli_mt.yang" "picd_telemetry_cli.hpp" "picd_simfault_cli.hpp" "Makefile.inc" "picd-cli_simfault.yang" "picd_issu_cli_mt.yang" "picd-cli_issu_render.yang" "picd_cli.hpp" "picd-cli_render.yang" "picd_cli_mt.yang" "picd_cli.cpp" "oc_interface_render.yang")
 
