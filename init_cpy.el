@@ -7,6 +7,8 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+(when (fboundp 'winner-mode)
+    (winner-mode 1))
 ;; this is for xterm to see mouse 
 (xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
@@ -41,12 +43,13 @@
 
 ;; remove some stuff that comes built into emacs
 (setq inhibit-startup-message t) 
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode ) (menu-bar-mode  -1))
+(toggle-scroll-bar -1) 
+(tool-bar-mode -1) 
+(menu-bar-mode -1)
 
 (use-package xcscope
 	 :ensure t
+	 :defer t
 	 :config
 	 (cscope-setup))
 
@@ -60,8 +63,7 @@
   :defer t)
 
 (use-package magit
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
@@ -71,10 +73,14 @@
     (which-key-mode)
     (which-key-setup-minibuffer))
 
+
+
 (use-package helm-config
+    :ensure t
     :config
     (helm-mode 1)
     (use-package helm-projectile
+        :ensure t
 	:config
 	(helm-projectile-on)))
 
@@ -92,6 +98,8 @@
 
 
 (use-package winum
+    :defer t
+    :ensure t
     :config
     (setq winum-auto-setup-mode-line nil)
     (winum-mode))
@@ -100,6 +108,7 @@
 
 (use-package spaceline
   :ensure t
+  :defer t
   :config 
  
 
@@ -110,11 +119,9 @@
     (spaceline-toggle-minor-modes-off)
     (spaceline-toggle-buffer-encoding-off)
     (spaceline-toggle-buffer-encoding-abbrev-off)
-    (setq powerline-default-separator 'rounded)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
-
-
+    (setq powerline-default-separator 'rounded) (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
 ;; themes
+
 (use-package ample-theme
    :defer t
    :ensure t
@@ -124,7 +131,7 @@
  	    (load-theme 'ample-light t t)
  	    (enable-theme 'ample)
  	    (custom-theme-set-faces 'ample
- 		`(region ((t :background "#00004d"))))))
+ 		`(region ((t :background "#5c2556"))))))
 
 
 (use-package rainbow-delimiters
@@ -132,8 +139,10 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
+
 (use-package git-gutter
   :ensure t
+  :defer t
   :config
   (global-git-gutter-mode 1))
   
@@ -141,6 +150,7 @@
 ;; this is the minibuffer stuff, the very last line on this buffer 
 (use-package ido
     :ensure t
+    :defer t
     :config 
     (ido-mode t)
     (setq ido-enable-flex-matching t))

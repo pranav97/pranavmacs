@@ -131,7 +131,8 @@
 	"ff" '(find-file :which-key "find-file")
 	;; easier to search big folders with this 
 	"fh" '(helm-find-files :which-key "helm-find-files")
-	"ft" '(neotree-toggle :which-key "neotree-toggle"))
+	"ft" '(neotree-toggle :which-key "neotree-toggle")
+	"fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
 	:states '(normal emacs)
@@ -144,7 +145,8 @@
 	"gl" '(magit-log-all :which-key "log")
 	"gg" '(git-gutter :which-key "git gutter")
 	"gn" '(git-gutter:next-hunk :which-key "git-gutter-next-hunk")
-	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk"))
+	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk")
+	"gr" '(git-gutter:revert-hunk :which-key "git-gutter-revert-hunk"))
 
 
     (general-define-key
