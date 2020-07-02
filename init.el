@@ -191,7 +191,7 @@
  '(neo-window-fixed-size nil)
  '(package-selected-packages
    (quote
-    (yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+    (yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags sound-wav org-pomodoro ample-theme spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
  '(which-key-mode t)
