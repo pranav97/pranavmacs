@@ -124,7 +124,7 @@
  	    (load-theme 'ample-light t t)
  	    (enable-theme 'ample)
  	    (custom-theme-set-faces 'ample
- 		`(region ((t :background "#5c2556"))))))
+ 		`(region ((t :background "#00004d"))))))
 
 
 (use-package rainbow-delimiters
