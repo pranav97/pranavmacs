@@ -90,12 +90,6 @@
 
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"p"  '(projectile-command-map :which-key "projectile prefix"))
-
-    (general-define-key
 	:states 'normal
 	:keymaps 'override
 	:prefix "SPC"
@@ -151,6 +145,14 @@
 	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk")
 	"gr" '(git-gutter:revert-hunk :which-key "git-gutter-revert-hunk"))
 
+    (general-define-key
+	:states '(normal)
+	:keymaps 'override
+	:prefix "SPC"
+	"t" '(:ignore t :which-key "todos")
+	"tn" '(hl-todo-previous :which-key "todo-prev")
+	"tp" '(hl-todo-next :which-key "todo-next")
+	"tt" '(hl-todo-insert :which-key "todo-insert"))
 
     (general-define-key
 	:states 'normal
