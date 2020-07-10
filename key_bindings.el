@@ -152,7 +152,8 @@
 	"t" '(:ignore t :which-key "todos")
 	"tn" '(hl-todo-previous :which-key "todo-prev")
 	"tp" '(hl-todo-next :which-key "todo-next")
-	"tt" '(hl-todo-insert :which-key "todo-insert"))
+	"tt" '(hl-todo-insert :which-key "todo-insert")
+	"to" '(hl-todo-occur :which-key "todo-occur"))
 
     (general-define-key
 	:states 'normal
