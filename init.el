@@ -23,7 +23,7 @@
 
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
-(add-hook 'prog-mode-hook 'hl-todo-mode)
+(global-hl-todo-mode)
 (setq hl-todo-keyword-faces
       '(("TODO"   . "#FF0000")
         ("FIXME"  . "#FF0000")
