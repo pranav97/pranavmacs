@@ -65,6 +65,9 @@
     :ensure t
     :config
     (general-evil-setup t)
+    (general-vmap "SPC x" (general-simulate-key "C-x"))
+    (general-vmap "SPC w" (general-simulate-key "C-w"))
+    (general-vmap "SPC c" (general-simulate-key "C-c"))
     
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
@@ -73,21 +76,21 @@
 
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"TAB"  '(evil-switch-to-windows-last-buffer
 		 :which-key "window-last-buff"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"SPC"  '(helm-M-x :which-key "M-x"))
 
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"p"  '(projectile-command-map :which-key "projectile prefix"))
@@ -99,7 +102,7 @@
 	"'" '(shell :which-key "shell"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"b"  '(:ignore t
@@ -123,7 +126,7 @@
 	    :which-key "toggle paragraph"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"f"  '(:ignore t :which-key "general")
@@ -135,7 +138,7 @@
 	"fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"g"  '(:ignore t :which-key "git")
@@ -164,7 +167,7 @@
 
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"o"  '(:ignore t :which-key "org-stuff")
