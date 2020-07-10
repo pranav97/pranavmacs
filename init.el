@@ -17,11 +17,19 @@
 (auto-save-visited-mode)
 (auto-revert-mode)
 
+;; highlight todos
 ;; git commit mode wraps at 80 chars
 (add-hook 'git-commit-mode-hook (lambda() (setq fill-column 80)))
 
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
+(add-hook 'prog-mode-hook 'hl-todo-mode)
+(setq hl-todo-keyword-faces
+      '(("TODO"   . "#FF0000")
+        ("FIXME"  . "#FF0000")
+        ("DEBUG"  . "#A020F0")
+        ("GOTCHA" . "#FF4500")
+        ("STUB"   . "#1E90FF")))
 
 ;; stuff like .log files or .out files treated as text mode
 (setq-default major-mode 'text-mode)
