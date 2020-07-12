@@ -39,7 +39,7 @@
     (evil-mode 1)
     (setq evil-default-state 'normal)
     (evil-set-initial-state 'fundamental-mode 'emacs)
-    (evil-set-initial-state 'neotree-mode 'emacs)
+    ;; (evil-set-initial-state 'neotree-mode 'emacs)
     (evil-set-initial-state 'dired-mode 'emacs)
 
     ;; need that page up usig control key
@@ -49,7 +49,22 @@
     (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
     ;; Also in visual mode
     (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-    (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
+    (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
+    (add-hook 'neotree-mode-hook
+              (lambda ()
+                (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+                (define-key evil-normal-state-local-map (kbd "w") 'evil-window-right)
+                (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+                (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+                (define-key evil-normal-state-local-map (kbd "D") 'neotree-change-root)
+                (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+                (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+                (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+                (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+                (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+                (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
+
+    )
 
 
 ;; neo tree specific keybindings
@@ -69,18 +84,21 @@
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
     (general-nmap "SPC c" (general-simulate-key "C-c"))
+    (general-vmap "SPC x" (general-simulate-key "C-x"))
+    (general-vmap "SPC w" (general-simulate-key "C-w"))
+    (general-vmap "SPC c" (general-simulate-key "C-c"))
 
 
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"TAB"  '(evil-switch-to-windows-last-buffer
 		 :which-key "window-last-buff"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"SPC"  '(helm-M-x :which-key "M-x"))
@@ -113,13 +131,12 @@
 
     (general-define-key
 	:states '(normal visual)
-	:keymaps 'override
 	:prefix "SPC"
-	"/"  '(:ignore t
-		:which-key "comment")
-	"/l" '(evilnc-comment-or-uncomment-lines
+	"k"  '(:ignore t
+		:which-key "komment")
+	"kl" '(evilnc-comment-or-uncomment-lines
 	    :which-key "toggle line")
-	"/p" '(evilnc-comment-or-uncomment-paragraphs
+	"kp" '(evilnc-comment-or-uncomment-paragraphs
 	    :which-key "toggle paragraph"))
 
     (general-define-key
