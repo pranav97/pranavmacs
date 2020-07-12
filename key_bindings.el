@@ -80,15 +80,13 @@
     :ensure t
     :config
     (general-evil-setup t)
+    (general-vmap "SPC x" (general-simulate-key "C-x"))
+    (general-vmap "SPC w" (general-simulate-key "C-w"))
+    (general-vmap "SPC c" (general-simulate-key "C-c"))
     
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
     (general-nmap "SPC c" (general-simulate-key "C-c"))
-    (general-vmap "SPC x" (general-simulate-key "C-x"))
-    (general-vmap "SPC w" (general-simulate-key "C-w"))
-    (general-vmap "SPC c" (general-simulate-key "C-c"))
-
-
 
     (general-define-key
 	:states '(normal emacs visual)
@@ -117,7 +115,7 @@
 	"'" '(shell :which-key "shell"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"b"  '(:ignore t
@@ -140,7 +138,7 @@
 	    :which-key "toggle paragraph"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"f"  '(:ignore t :which-key "general")
@@ -152,7 +150,7 @@
 	"fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"g"  '(:ignore t :which-key "git")
@@ -165,6 +163,15 @@
 	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk")
 	"gr" '(git-gutter:revert-hunk :which-key "git-gutter-revert-hunk"))
 
+    (general-define-key
+	:states '(normal)
+	:keymaps 'override
+	:prefix "SPC"
+	"t" '(:ignore t :which-key "todos")
+	"tn" '(hl-todo-next:which-key "todo-prev")
+	"tp" '(hl-todo-previous :which-key "todo-next")
+	"tt" '(hl-todo-insert :which-key "todo-insert")
+	"to" '(hl-todo-occur :which-key "todo-occur"))
 
     (general-define-key
 	:states 'normal
@@ -181,7 +188,7 @@
 
 
     (general-define-key
-	:states '(normal emacs)
+	:states '(normal emacs visual)
 	:keymaps 'override
 	:prefix "SPC"
 	"o"  '(:ignore t :which-key "org-stuff")
