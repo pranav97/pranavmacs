@@ -86,10 +86,7 @@
 
 (use-package helm-config
   :config
-  (helm-mode 1)
-  (use-package helm-projectile
-    :config
-    (helm-projectile-on)))
+  (helm-mode 1))
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags :ensure t
