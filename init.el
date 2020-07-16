@@ -42,6 +42,8 @@
 ;; this is for wrapping
 (add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
 
+;; rainbow delim
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; emacs has built in line numbers relative
 (when (version<= "26.0.50" emacs-version)
@@ -68,13 +70,28 @@
 (load-file "~/.emacs.d/key_bindings.el")
 
 ;; helm configurations
+(helm-mode 1)
+
+;; helm gtags(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+(custom-set-variables
+'(helm-gtags-path-style 'relative)
+'(helm-gtags-ignore-case t)
+'(helm-gtags-auto-update t))
+
+
+;; git gutter
+(global-git-gutter-mode 1)
+
 ;; helm stuff
 (use-package org-evil
   :ensure t
   :defer t)
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
@@ -85,23 +102,18 @@
   (which-key-setup-minibuffer))
 
 (use-package helm-config
-  :config
-  (helm-mode 1))
+  :defer t)
 
 ;; turning on helm-gtags-mode
-(use-package helm-gtags :ensure t
-  :config
-  (add-hook 'c-mode-hook 'helm-gtags-mode)
-  (add-hook 'c++-mode-hook 'helm-gtags-mode)
-  (add-hook 'asm-mode-hook 'helm-gtags-mode)
-  (custom-set-variables
-   '(helm-gtags-path-style 'relative)
-   '(helm-gtags-ignore-case t)
-   '(helm-gtags-auto-update t)))
-
+(use-package helm-gtags
+  :ensure t
+  :defer t
+  :config)
 
 
 (use-package winum
+  :ensure t
+  :defer t
   :config
   (setq winum-auto-setup-mode-line nil)
   (winum-mode))
@@ -111,8 +123,6 @@
 (use-package spaceline
   :ensure t
   :config 
-  
-
   (use-package spaceline-config
     :config
     (spaceline-helm-mode 1)
@@ -126,8 +136,6 @@
 
 ;; themes
 (use-package ample-theme
-  :defer t
-  :ensure t
   :init (progn
 	  (load-theme 'ample t t)
 	  (load-theme 'ample-flat t t)
@@ -138,22 +146,15 @@
 
 
 (use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :ensure t
+  :defer t)
 
 
 (use-package git-gutter
   :ensure t
-  :config
-  (global-git-gutter-mode 1))
+  :defer t)
 
 
-;; this is the minibuffer stuff, the very last line on this buffer 
-(use-package ido
-  :ensure t
-  :config 
-  (ido-mode t)
-  (setq ido-enable-flex-matching t))
 
 
 ;; Scooby-Doo by Blazej Kozlowski
