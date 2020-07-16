@@ -84,6 +84,21 @@
 ;; git gutter
 (global-git-gutter-mode 1)
 
+
+;; winum
+
+(setq winum-auto-setup-mode-line nil)
+(winum-mode)
+
+
+;; which key mode
+(which-key-mode)
+(which-key-setup-minibuffer)
+
+
+;; winner mode
+(winner-mode)
+
 ;; helm stuff
 (use-package org-evil
   :ensure t
@@ -96,10 +111,7 @@
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
   :ensure t
-  :defer t
-  :config
-  (which-key-mode)
-  (which-key-setup-minibuffer))
+  :defer t)
 
 (use-package helm-config
   :defer t)
@@ -107,16 +119,12 @@
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
-  :defer t
-  :config)
+  :defer t)
 
 
 (use-package winum
   :ensure t
-  :defer t
-  :config
-  (setq winum-auto-setup-mode-line nil)
-  (winum-mode))
+  :defer t)
 
 
 
@@ -136,6 +144,7 @@
 
 ;; themes
 (use-package ample-theme
+  :defer t
   :init (progn
 	  (load-theme 'ample t t)
 	  (load-theme 'ample-flat t t)
