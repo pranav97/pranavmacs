@@ -7,6 +7,10 @@
 (package-initialize)
 
 ;; BUILT IN STUFF 
+;; consider underscore as one word
+(add-hook 'c-mode-common-hook
+          (lambda () (modify-syntax-entry ?_ "w")))
+
 ;; this is for xterm to see mouse 
 (xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
