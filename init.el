@@ -109,36 +109,37 @@
 (winner-mode)
 
 ;; helm stuff
-(use-package org-evil
-  :ensure t
-  :defer t)
 
 (use-package magit
+  :defer 5 
   :ensure t
   :defer t)
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
   :ensure t
+  :defer 5 
   :defer t)
 
 (use-package helm-config
-  :defer t)
+  :defer 5)
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
-  :defer t)
+  :defer 10)
 
 
 (use-package winum
   :ensure t
-  :defer t)
+  :defer t
+  )
 
 
 
 (use-package spaceline
   :ensure t
+  :defer 5
   :config 
   (use-package spaceline-config
     :config
@@ -153,7 +154,7 @@
 
 ;; themes
 (use-package ample-theme
-  :defer t
+  :defer 5
   :init (progn
 	  (load-theme 'ample t t)
 	  (load-theme 'ample-flat t t)
@@ -165,12 +166,12 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer t)
+  :defer 5)
 
 
 (use-package git-gutter
   :ensure t
-  :defer t)
+  :defer 10)
 
 
 
