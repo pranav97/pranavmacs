@@ -65,8 +65,13 @@
 ;; c mode config
 (setq c-basic-offset 4)
 
+
+;; set emacs to always use spaces
+(setq indent-tabs-mode nil)
+
 (use-package xcscope
   :ensure t
+  :defer 10
   :config
   (cscope-setup))
 
