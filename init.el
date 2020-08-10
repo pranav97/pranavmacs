@@ -75,58 +75,12 @@
   :config
   (cscope-setup))
 
-;; always do keybindings before helm
 (load-file "~/.emacs.d/key_bindings.el")
 
-;; helm configurations
-(helm-mode 1)
 
 ;; helm gtags(add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
- '(git-gutter:modified-sign "|")
- '(git-gutter:update-interval 0)
- '(global-git-gutter-mode t)
- '(helm-completion-style 'emacs)
- '(helm-gtags-auto-update t)
- '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style 'relative)
- '(neo-window-fixed-size nil)
- '(package-selected-packages
-   '(magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
- '(tool-bar-mode nil)
- '(which-key-dont-use-unicode t)
- '(which-key-mode t)
- '(which-key-separator "': '")
- '(xterm-mouse-mode t))
-
-
-;; git gutter
-(global-git-gutter-mode 1)
-
-
-;; winum
-
-(setq winum-auto-setup-mode-line nil)
-(winum-mode)
-
-
-;; which key mode
-(which-key-mode)
-(which-key-setup-minibuffer)
-
-
-;; winner mode
-(winner-mode)
-
-;; helm stuff
 
 (use-package magit
   :defer 5 
@@ -137,22 +91,21 @@
 (use-package which-key
   :ensure t
   :defer 5 
-  :defer t)
+  :defer t
+  :config
+  (which-key-mode)
+  (which-key-setup-minibuffer))
 
 (use-package helm-config
-  :defer 5)
+  :defer 5
+  :config 
+  ;; helm configurations
+  (helm-mode 1))
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
   :defer 10)
-
-
-(use-package winum
-  :ensure t
-  :defer t
-  )
-
 
 
 (use-package spaceline
@@ -189,9 +142,25 @@
 
 (use-package git-gutter
   :ensure t
-  :defer 10)
+  :defer 10
+  :config
+  (global-git-gutter-mode +1))
 
 
+(use-package winner
+  :ensure t
+  :defer 10
+  :config
+  (winner-mode))
+
+
+
+(use-package winum
+  :defer 10
+  :ensure t
+  :config
+  (winum-mode)  
+  (setq winum-auto-setup-mode-line nil))
 
 
 ;; Scooby-Doo by Blazej Kozlowski
@@ -240,3 +209,28 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "light pink"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "grey80")))))
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
+ '(git-gutter:modified-sign "|")
+ '(git-gutter:update-interval 0)
+ '(global-git-gutter-mode t)
+ '(helm-completion-style 'emacs)
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-path-style 'relative)
+ '(neo-window-fixed-size nil)
+ '(package-selected-packages
+   '(magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
+ '(tool-bar-mode nil)
+ '(which-key-dont-use-unicode t)
+ '(which-key-mode t)
+ '(which-key-separator "': '")
+ '(xterm-mouse-mode t))
