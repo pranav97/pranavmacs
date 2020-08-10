@@ -33,24 +33,33 @@
     (define-key map (kbd "M-8") 'winum-select-window-8)
     map))
 
+
 (use-package evil
-    :ensure t
-    :config
-    (evil-mode 1)
-    (setq evil-default-state 'normal)
-    (evil-set-initial-state 'fundamental-mode 'emacs)
-    (evil-set-initial-state 'neotree-mode 'emacs)
-    (evil-set-initial-state 'dired-mode 'emacs)
+  :ensure t
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1)
+  ;; (setq evil-default-state 'normal)
+  ;; (evil-set-initial-state 'fundamental-mode 'emacs)
+  ;; (evil-set-initial-state 'neotree-mode 'emacs)
+  ;; (evil-set-initial-state 'dired-mode 'emacs)
 
-    ;; need that page up usig control key
-    (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-    ;; Make evil-mode up/down operate in screen lines instead of logical lines
-    (define-key evil-motion-state-map "j" 'evil-next-visual-line)
-    (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
-    ;; Also in visual mode
-    (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-    (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
+  ;; need that page up usig control key
+  (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+  ;; Make evil-mode up/down operate in screen lines instead of logical lines
+  (define-key evil-motion-state-map "j" 'evil-next-visual-line)
+  (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
+  ;; Also in visual mode
+  (define-key evil-visual-state-map "j" 'evil-next-visual-line)
+  (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
 
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 ;; neo tree specific keybindings
 (use-package neotree
@@ -125,9 +134,8 @@
 	:prefix "SPC"
 	"f"  '(:ignore t :which-key "general")
 	;; good enough for most cases autoterminates
-	"ff" '(find-file :which-key "find-file")
+	"ff" '(helm-find-files :which-key "helm-find-file")
 	;; easier to search big folders with this 
-	"fh" '(helm-find-files :which-key "helm-find-files")
 	"ft" '(neotree-toggle :which-key "neotree-toggle")
 	"fs" '(save-buffer :which-key "save-buffer"))
 
@@ -136,14 +144,12 @@
 	:keymaps 'override
 	:prefix "SPC"
 	"g"  '(:ignore t :which-key "git")
-	"gs" '(magit-status :which-key "status")
-	"gp" '(magit-push :which-key "push")
-	"gP" '(magit-pull :which-key "pull")
-	"gl" '(magit-log-all :which-key "log")
-	"gg" '(git-gutter :which-key "git gutter")
-	"gn" '(git-gutter:next-hunk :which-key "git-gutter-next-hunk")
-	"gN" '(git-gutter:previous-hunk :which-key "git-gutter-previous-hunk")
-	"gr" '(git-gutter:revert-hunk :which-key "git-gutter-revert-hunk"))
+	"gg" '(magit-status :which-key "status")
+	"gu" '(git-gutter :which-key "git gutter")
+	"gs" '(git-gutter:stage-hunk :which-key "stage-hunk")
+	"g[" '(git-gutter:next-hunk :which-key "next-hunk")
+	"g[" '(git-gutter:previous-hunk :which-key "previous-hunk")
+	"gr" '(git-gutter:revert-hunk :which-key "revert-hunk"))
 
     (general-define-key
 	:states '(normal)
