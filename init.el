@@ -19,11 +19,7 @@
 ;; auto save folder
 (setq backup-directory-alist '(("." . "~/.emacs-saves")))
 (auto-save-visited-mode)
-(auto-revert-mode)
 
-;; highlight todos
-;; git commit mode wraps at 80 chars
-(add-hook 'git-commit-mode-hook (lambda() (setq fill-column 80)))
 
 ;; folding - hide show minor mode 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
@@ -46,8 +42,6 @@
 ;; this is for wrapping
 (add-hook 'prog-mode-hook (lambda () (visual-line-mode 1)))
 
-;; rainbow delim
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; emacs has built in line numbers relative
 (when (version<= "26.0.50" emacs-version)
@@ -65,9 +59,18 @@
 ;; c mode config
 (setq c-basic-offset 4)
 
+;; show white spaces
+(whitespace-mode 1)
+
+;; rainbow delim
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 
 ;; set emacs to always use spaces
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
+
+;; git commit mode wraps at 80 chars
+(add-hook 'git-commit-mode-hook (lambda() (setq fill-column 80)))
 
 (use-package xcscope
   :ensure t
@@ -78,20 +81,22 @@
 (load-file "~/.emacs.d/key_bindings.el")
 
 
-;; helm gtags(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 (use-package magit
-  :defer 5 
+  :defer 5
   :ensure t
-  :defer t)
+  :defer t
+  :config 
+  (auto-revert-mode)
+
+
+  )
 
 ;; which key tells you what the next key combination can be in a emacs command 
 (use-package which-key
   :ensure t
   :defer 5 
-  :defer t
+  :defer t 
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
@@ -105,27 +110,22 @@
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
-  :defer 10)
+  :defer 10
+  :config
+
+  ;; helm gtags(add-hook 'c-mode-hook 'helm-gtags-mode)
+  (add-hook 'c++-mode-hook 'helm-gtags-mode)
+  (add-hook 'asm-mode-hook 'helm-gtags-mode) )
 
 
-(use-package spaceline
+
+(use-package doom-modeline
   :ensure t
-  :defer 5
-  :config 
-  (use-package spaceline-config
-    :config
-    (spaceline-helm-mode 1)
-    (spaceline-emacs-theme)
-    (spaceline-toggle-minor-modes-off)
-    (spaceline-toggle-buffer-encoding-off)
-    (spaceline-toggle-buffer-encoding-abbrev-off)
-    (setq powerline-default-separator 'rounded)
-    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)))
-
+  :init (doom-modeline-mode 1))
 
 ;; themes
 (use-package ample-theme
-  :defer 5
+  :defer t
   :init (progn
 	  (load-theme 'ample t t)
 	  (load-theme 'ample-flat t t)
@@ -161,6 +161,13 @@
   :config
   (winum-mode)  
   (setq winum-auto-setup-mode-line nil))
+
+
+
+;; neo tree specific keybindings
+(use-package neotree
+    :ensure t
+    :defer 10)
 
 
 ;; Scooby-Doo by Blazej Kozlowski
