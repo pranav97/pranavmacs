@@ -1,6 +1,8 @@
 (require 'package)
 
-(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'load-path "~/.emacs.d/external")
@@ -36,7 +38,6 @@
 ;; stuff like .log files or .out files treated as text mode
 (setq-default major-mode 'text-mode)
 
-;; if typing into simlpe text file or org file, then emacs inserts new lines for me
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
@@ -129,19 +130,20 @@
 
 
 (use-package doom-modeline
+  :defer 5
   :ensure t
   :init (doom-modeline-mode 1))
 
 ;; themes
 (use-package ample-theme
-  :defer t
-  :init (progn
-	  (load-theme 'ample t t)
-	  (load-theme 'ample-flat t t)
-	  (load-theme 'ample-light t t)
-	  (enable-theme 'ample)
-	  (custom-theme-set-faces 'ample
-				  `(region ((t :background "#00004d"))))))
+  :init
+    (progn
+      (load-theme 'ample t t)
+      (load-theme 'ample-flat t t)
+      (load-theme 'ample-light t t)
+      (enable-theme 'ample)
+      (custom-theme-set-faces 'ample
+        `(region ((t :background "#00004d"))))))
 
 
 (use-package rainbow-delimiters
@@ -226,11 +228,12 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "light pink"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "grey80"))))
  '(whitespace-indentation ((t (:foreground "#757575"))))
+ '(whitespace-line ((t (:background "white" :foreground "red"))))
  '(whitespace-space ((t (:foreground "#757575"))))
  '(whitespace-space-after-tab ((t (:background "red" :foreground "#757575"))))
- '(whitespace-space-before-tab ((t (:background "red" :foreground "#757575"))))
- '(whitespace-tab ((t (:background "red" :foreground "black"))))
- '(whitespace-trailing ((t (:background "green" :foreground "red" :weight bold)))))
+ '(whitespace-space-before-tab ((t (:background "white" :foreground "#757575"))))
+ '(whitespace-tab ((t (:background "white"))))
+ '(whitespace-trailing ((t (:background "white")))))
 
 
 
@@ -240,25 +243,23 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default)))
+   '("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
+ '(fill-column 80)
  '(git-gutter:modified-sign "|")
  '(git-gutter:update-interval 0)
  '(global-git-gutter-mode t)
- '(helm-completion-style (quote emacs))
+ '(helm-completion-style 'emacs)
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style (quote relative))
+ '(helm-gtags-path-style 'relative)
  '(neo-window-fixed-size nil)
  '(package-selected-packages
-   (quote
-    (magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
+   '(magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
  '(which-key-mode t)
  '(which-key-separator "': '")
  '(whitespace-style
-   (quote
-    (face trailing tabs lines newline empty space-after-tab::tab space-after-tab::space space-after-tab space-before-tab::tab space-before-tab::space space-before-tab tab-mark)))
+   '(face trailing tabs lines-tail newline empty space-after-tab::tab space-after-tab::space space-after-tab space-before-tab::tab space-before-tab::space space-before-tab tab-mark))
  '(xterm-mouse-mode t))
