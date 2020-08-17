@@ -42,113 +42,113 @@
 
 ;; trying to get some normal keybindings with leader key space.
 (use-package general
+    :after evil
     :ensure t
     :config
     (general-evil-setup t)
     (general-vmap "SPC x" (general-simulate-key "C-x"))
     (general-vmap "SPC w" (general-simulate-key "C-w"))
     (general-vmap "SPC c" (general-simulate-key "C-c"))
-    
     (general-nmap "SPC x" (general-simulate-key "C-x"))
     (general-nmap "SPC w" (general-simulate-key "C-w"))
     (general-nmap "SPC c" (general-simulate-key "C-c"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"TAB"  '(evil-switch-to-windows-last-buffer
-		 :which-key "window-last-buff"))
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "TAB"  '(evil-switch-to-windows-last-buffer
+        :which-key "window-last-buff"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"SPC"  '(helm-M-x :which-key "M-x"))
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "SPC"  '(helm-M-x :which-key "M-x"))
 
 
     (general-define-key
-	:states 'normal
-	:keymaps 'override
-	:prefix "SPC"
-	"'" '(shell :which-key "shell"))
+        :states 'normal
+        :keymaps 'override
+        :prefix "SPC"
+        "'" '(shell :which-key "shell"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"b"  '(:ignore t
-		:which-key "buffers")
-	"bb" '(helm-buffers-list
-	    :which-key "helm buffers")
-	"bd" '(kill-this-buffer
-	    :which-key "helm delete buffer")
-	"bn" '(evil-buffer-new
-	   :which-key "new buffer"))
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "b"  '(:ignore t
+            :which-key "buffers")
+        "bb" '(helm-buffers-list
+            :which-key "helm buffers")
+        "bd" '(kill-this-buffer
+            :which-key "helm delete buffer")
+        "bn" '(evil-buffer-new
+        :which-key "new buffer"))
 
     (general-define-key
-	:states '(normal visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"/"  '(:ignore t
-		:which-key "comment")
-	"/l" '(evilnc-comment-or-uncomment-lines
-	    :which-key "toggle line")
-	"/p" '(evilnc-comment-or-uncomment-paragraphs
-	    :which-key "toggle paragraph"))
+        :states '(normal visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "/"  '(:ignore t
+            :which-key "comment")
+        "/l" '(evilnc-comment-or-uncomment-lines
+            :which-key "toggle line")
+        "/p" '(evilnc-comment-or-uncomment-paragraphs
+            :which-key "toggle paragraph"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"f"  '(:ignore t :which-key "general")
-	;; good enough for most cases autoterminates
-	"ff" '(helm-find-files :which-key "helm-find-file")
-	;; easier to search big folders with this 
-	"ft" '(neotree-toggle :which-key "neotree-toggle")
-	"fs" '(save-buffer :which-key "save-buffer"))
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "f"  '(:ignore t :which-key "general")
+        ;; good enough for most cases autoterminates
+        "ff" '(helm-find-files :which-key "helm-find-file")
+        ;; easier to search big folders with this 
+        "ft" '(neotree-toggle :which-key "neotree-toggle")
+        "fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"g"  '(:ignore t :which-key "git")
-	"gg" '(magit-status :which-key "status")
-	"gu" '(git-gutter :which-key "git gutter")
-	"gs" '(git-gutter:stage-hunk :which-key "stage-hunk")
-	"g[" '(git-gutter:next-hunk :which-key "next-hunk")
-	"g]" '(git-gutter:previous-hunk :which-key "previous-hunk")
-	"gr" '(git-gutter:revert-hunk :which-key "revert-hunk"))
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "g"  '(:ignore t :which-key "git")
+        "gg" '(magit-status :which-key "status")
+        "gu" '(git-gutter :which-key "git gutter")
+        "gs" '(git-gutter:stage-hunk :which-key "stage-hunk")
+        "g[" '(git-gutter:next-hunk :which-key "next-hunk")
+        "g]" '(git-gutter:previous-hunk :which-key "previous-hunk")
+        "gr" '(git-gutter:revert-hunk :which-key "revert-hunk"))
 
     (general-define-key
-	:states '(normal)
-	:keymaps 'override
-	:prefix "SPC"
-	"t" '(:ignore t :which-key "todos")
-	"tn" '(hl-todo-previous :which-key "todo-prev")
-	"tp" '(hl-todo-next :which-key "todo-next")
-	"tt" '(hl-todo-insert :which-key "todo-insert")
-	"to" '(hl-todo-occur :which-key "todo-occur"))
+        :states '(normal)
+        :keymaps 'override
+        :prefix "SPC"
+        "t" '(:ignore t :which-key "todos")
+        "tn" '(hl-todo-previous :which-key "todo-prev")
+        "tp" '(hl-todo-next :which-key "todo-next")
+        "tt" '(hl-todo-insert :which-key "todo-insert")
+        "to" '(hl-todo-occur :which-key "todo-occur"))
 
     (general-define-key
-	:states 'normal
-	:keymaps 'override
-	:prefix "SPC"
-	"h"  '(:ignore t :which-key "helm-gtags")
-	"hf" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
-	"hr" '(helm-gtags-find-rtag :which-key "helm-gtags-find-rtag")
-	"hk" '(helm-gtags-parse-file :which-key "helm-gtags-parse-file")
-	"hp" '(helm-gtags-previous-history :which-key "helm-gtags-prev")
-	"hn" '(helm-gtags-next-history :which-key "helm-gtags-next")
-	"hs" '(helm-gtags-pop-stack :which-key "helm-gtags-pop"))
+        :states 'normal
+        :keymaps 'override
+        :prefix "SPC"
+        "h"  '(:ignore t :which-key "helm-gtags")
+        "hf" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
+        "hr" '(helm-gtags-find-rtag :which-key "helm-gtags-find-rtag")
+        "hk" '(helm-gtags-parse-file :which-key "helm-gtags-parse-file")
+        "hp" '(helm-gtags-previous-history :which-key "helm-gtags-prev")
+        "hn" '(helm-gtags-next-history :which-key "helm-gtags-next")
+        "hs" '(helm-gtags-pop-stack :which-key "helm-gtags-pop"))
 
     (general-define-key
-	:states '(normal emacs visual)
-	:keymaps 'override
-	:prefix "SPC"
-	"o"  '(:ignore t :which-key "org-stuff")
-	"oa"  '(org-agenda :which-key "org-agends")
-	"op"  '(org-pomodoro :which-key "org-pomodoro")
+        :states '(normal emacs visual)
+        :keymaps 'override
+        :prefix "SPC"
+        "o"  '(:ignore t :which-key "org-stuff")
+        "oa"  '(org-agenda :which-key "org-agends")
+        "op"  '(org-pomodoro :which-key "org-pomodoro")
         "os"  '(org-schedule :which-eky "org-schedule"))
 
 )

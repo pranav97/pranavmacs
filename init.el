@@ -4,16 +4,17 @@
                          ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
+
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'load-path "~/.emacs.d/external")
 (package-initialize)
 
-;; BUILT IN STUFF 
+;; BUILT IN STUFF
 ;; consider underscore as one word
 (add-hook 'c-mode-common-hook
           (lambda () (modify-syntax-entry ?_ "w")))
 
-;; this is for xterm to see mouse 
+;; this is for xterm to see mouse
 (xterm-mouse-mode 1)
 ;; removes 'newer byte compiled error'
 (setq load-prefer-newer t)
@@ -23,7 +24,7 @@
 (auto-save-visited-mode)
 
 
-;; folding - hide show minor mode 
+;; folding - hide show minor mode
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
 ;; highlight todo tierms
@@ -54,7 +55,7 @@
 
 
 ;; remove some stuff that comes built into emacs
-(setq inhibit-startup-message t) 
+(setq inhibit-startup-message t)
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode ) (menu-bar-mode  -1))
@@ -64,9 +65,6 @@
 
 ;; show white spaces
 (whitespace-mode 1)
-
-;; rainbow delim
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 
 ;; set emacs to always use spaces
@@ -93,27 +91,25 @@
 
 
 (use-package magit
-  :defer 5
+  :defer 10 
   :ensure t
-  :defer t
-  :config 
+  :config
   (auto-revert-mode)
 
 
   )
 
-;; which key tells you what the next key combination can be in a emacs command 
+;; which key tells you what the next key combination can be in a emacs command
 (use-package which-key
   :ensure t
-  :defer 5 
-  :defer t 
+  :defer 5
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
 
 (use-package helm-config
   :defer 5
-  :config 
+  :config
   ;; helm configurations
   (helm-mode 1))
 
@@ -128,11 +124,11 @@
   (add-hook 'asm-mode-hook 'helm-gtags-mode) )
 
 
-
+;; not lazy loaded, boo
 (use-package doom-modeline
-  :defer 5
   :ensure t
-  :init (doom-modeline-mode 1))
+  :init
+  (doom-modeline-mode 1))
 
 ;; themes
 (use-package ample-theme
@@ -148,12 +144,16 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer 5)
+  :defer t
+  :init
+  ;; rainbow delim
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
 
 
 (use-package git-gutter
   :ensure t
-  :defer 10
+  :defer 3
   :config
   (global-git-gutter-mode +1))
 
@@ -165,16 +165,6 @@
   (winner-mode))
 
 
-
-(use-package winum
-  :defer 10
-  :ensure t
-  :config
-  (winum-mode)  
-  (setq winum-auto-setup-mode-line nil))
-
-
-
 ;; neo tree specific keybindings
 (use-package neotree
     :ensure t
@@ -182,30 +172,30 @@
 
 
 ;; Scooby-Doo by Blazej Kozlowski
-;;                                             :\                  
-;;                                             ;\\                 
-;;                                             ; ;;  __            
-;;                                             :/ :-",dP    _.ggp. 
+;;                                             :\
+;;                                             ;\\
+;;                                             ; ;;  __
+;;                                             :/ :-",dP    _.ggp.
 ;;                                             :     (*).-"" :$$$$;
 ;;                                             ;              T$$$;
-;;                                            :     _,-        `TP 
-;;                                            ;      `.  _      ;  
-;;                                            ;        "" \    /   
-;;                                            ;            `-+'    
-;;                                            :            .-'     
-;;                                             ;      \;   ;       
-;;                                             :       `--+'-.     
-;;  .---.                                       ;         ;`       
-;; :_    `.                                     :         ;        
-;;   "-,   ;                                   / "-.      :        
-;;      ;  :                                .p""-.  ""--..:        
-;;      ;  :                             .-T$$P   ""--..___l-,     
-;;      ;  :                          .-"   ""            :\()l    
-;;      ;  ;              _________.-"         $$          ;`-'    
-;;      ;  ; bug     .--""$$$$$$$P                         :       
-;;      ;  '._____.-"_.   'T$$P^'                          :       
-;;      :         .-"                                 \    :       
-;;        """                                :_l :_;_l             
+;;                                            :     _,-        `TP
+;;                                            ;      `.  _      ;
+;;                                            ;        "" \    /
+;;                                            ;            `-+'
+;;                                            :            .-'
+;;                                             ;      \;   ;
+;;                                             :       `--+'-.
+;;  .---.                                       ;         ;`
+;; :_    `.                                     :         ;
+;;   "-,   ;                                   / "-.      :
+;;      ;  :                                .p""-.  ""--..:
+;;      ;  :                             .-T$$P   ""--..___l-,
+;;      ;  :                          .-"   ""            :\()l
+;;      ;  ;              _________.-"         $$          ;`-'
+;;      ;  ; bug     .--""$$$$$$$P                         :
+;;      ;  '._____.-"_.   'T$$P^'                          :
+;;      :         .-"                                 \    :
+;;        """                                :_l :_;_l
 ;;                                              "
 ;; do not touch.
 
@@ -228,9 +218,9 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "light pink"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "grey80"))))
  '(whitespace-indentation ((t (:foreground "#757575"))))
- '(whitespace-line ((t (:background "white" :foreground "red"))))
+ '(whitespace-line ((t (:foreground "#ab75c3"))))
  '(whitespace-space ((t (:foreground "#757575"))))
- '(whitespace-space-after-tab ((t (:background "red" :foreground "#757575"))))
+ '(whitespace-space-after-tab ((t (:background "white" :foreground "#757575"))))
  '(whitespace-space-before-tab ((t (:background "white" :foreground "#757575"))))
  '(whitespace-tab ((t (:background "white"))))
  '(whitespace-trailing ((t (:background "white")))))
@@ -243,23 +233,24 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
+   (quote
+    ("36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default)))
  '(fill-column 80)
  '(git-gutter:modified-sign "|")
  '(git-gutter:update-interval 0)
- '(global-git-gutter-mode t)
- '(helm-completion-style 'emacs)
+ '(helm-completion-style (quote emacs))
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style 'relative)
+ '(helm-gtags-path-style (quote relative))
  '(neo-window-fixed-size nil)
  '(package-selected-packages
-   '(magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
+   (quote
+    (magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter)))
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)
- '(which-key-mode t)
  '(which-key-separator "': '")
  '(whitespace-style
-   '(face trailing tabs lines-tail newline empty space-after-tab::tab space-after-tab::space space-after-tab space-before-tab::tab space-before-tab::space space-before-tab tab-mark))
+   (quote
+    (face trailing tabs lines-tail newline empty space-after-tab::tab space-after-tab::space space-after-tab space-before-tab::tab space-before-tab::space space-before-tab)))
  '(xterm-mouse-mode t))
