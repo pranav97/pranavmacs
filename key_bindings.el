@@ -21,6 +21,8 @@
 (use-package evil
   :ensure t
   :init
+(setq evil-want-integration t)
+(setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   ;; need that page up usig control key
@@ -31,6 +33,13 @@
   ;; Also in visual mode
   (define-key evil-visual-state-map "j" 'evil-next-visual-line)
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
+
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 ;; trying to get some normal keybindings with leader key space.
 (use-package general
