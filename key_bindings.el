@@ -21,8 +21,6 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   ;; need that page up usig control key
@@ -34,24 +32,12 @@
   (define-key evil-visual-state-map "j" 'evil-next-visual-line)
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line))
 
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
 ;; trying to get some normal keybindings with leader key space.
 (use-package general
     :after evil
     :ensure t
     :config
     (general-evil-setup t)
-    (general-vmap "SPC x" (general-simulate-key "C-x"))
-    (general-vmap "SPC w" (general-simulate-key "C-w"))
-    (general-vmap "SPC c" (general-simulate-key "C-c"))
-    (general-nmap "SPC x" (general-simulate-key "C-x"))
-    (general-nmap "SPC w" (general-simulate-key "C-w"))
-    (general-nmap "SPC c" (general-simulate-key "C-c"))
 
     (general-define-key
         :states '(normal emacs visual)

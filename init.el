@@ -82,7 +82,6 @@
 
 (use-package xcscope
   :ensure t
-  :defer 10
   :config
   (cscope-setup))
 
@@ -132,17 +131,6 @@
   :ensure t
   :init
   (doom-modeline-mode 1))
-
-;; themes
-(use-package ample-theme
-  :init
-    (progn
-      (load-theme 'ample t t)
-      (load-theme 'ample-flat t t)
-      (load-theme 'ample-light t t)
-      (enable-theme 'ample)
-      (custom-theme-set-faces 'ample
-        `(region ((t :background "#00004d"))))))
 
 
 (use-package rainbow-delimiters
