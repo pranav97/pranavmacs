@@ -236,7 +236,7 @@
  '(helm-gtags-path-style 'relative)
  '(neo-window-fixed-size nil)
  '(package-selected-packages
-   '(zenburn-theme dracula-theme dts-mode magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
+   '(winner-mode-enable zenburn-theme dracula-theme dts-mode magit-todos yang-mode doom-modeline list-utils unicode-fonts xcscope yasnippet helm-gtags powershell sound-wav org-pomodoro smartparens ample-theme company-lsp company-irony company spaceline winum rainbow-delimiters neotree fill-column-indicator helm-projectile magit which-key org-evil helm evil-nerd-commenter))
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(which-key-dont-use-unicode t)

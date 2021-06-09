@@ -137,6 +137,29 @@
         "hn" '(helm-gtags-next-history :which-key "helm-gtags-next")
         "hs" '(helm-gtags-pop-stack :which-key "helm-gtags-pop"))
 
+
+    (general-define-key
+        :states 'normal
+        :keymaps 'override
+        :prefix "SPC"
+        "window"  '(:ignore t :which-key "window")
+        "wu" '(winner-undo :which-key "winner-undo")
+        "wr" '(winner-redo :which-key "winner-redo")
+        "ww" '(evil-window-next :which-key "evil-window-next")
+        "ws" '(evil-window-split :which-key "evil-window-split")
+        "wv" '(evil-window-vsplit :which-key "evil-window-vsplit")
+        "wd" '(evil-window-delete :which-key "evil-window-delete")
+        "wj" '(evil-window-down :which-key "evil-window-down")
+        "wk" '(evil-window-up :which-key "evil-window-up")
+        "wl" '(evil-window-right :which-key "evil-window-right")
+        "wh" '(evil-window-left :which-key "evil-window-left")
+
+        "wJ" '(evil-window-move-very-bottom :which-key "evil-window-move-very-bottom")
+        "wK" '(evil-window-move-very-top :which-key "evil-window-move-very-top")
+        "wL" '(evil-window-move-far-right :which-key "evil-window-move-far-right")
+        "wH" '(evil-window-move-far-left :which-key "evil-window-move-far-left"))
+
+
     (general-define-key
         :states '(normal emacs visual)
         :keymaps 'override
