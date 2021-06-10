@@ -95,7 +95,7 @@
 
 
 (use-package magit
-  :defer 10 
+  :defer 10
   :ensure t
   :config
   (auto-revert-mode)
@@ -106,7 +106,7 @@
 ;; which key tells you what the next key combination can be in a emacs command
 (use-package which-key
   :ensure t
-  :defer 5
+  :defer 10
   :config
   (which-key-mode)
   (which-key-setup-minibuffer))
@@ -146,7 +146,6 @@
 
 (use-package git-gutter
   :ensure t
-  :defer 3
   :config
   (global-git-gutter-mode +1))
 
