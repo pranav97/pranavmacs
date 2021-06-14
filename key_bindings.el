@@ -101,6 +101,7 @@
         "ff" '(helm-find-files :which-key "helm-find-file")
         ;; easier to search big folders with this 
         "ft" '(neotree-toggle :which-key "neotree-toggle")
+        "fd" '(delete-frame :which-key "delete-frame")
         "fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
