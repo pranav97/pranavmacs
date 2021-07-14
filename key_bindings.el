@@ -85,11 +85,11 @@
         :states '(normal visual)
         :keymaps 'override
         :prefix "SPC"
-        "/"  '(:ignore t
+        "c"  '(:ignore t
             :which-key "comment")
-        "/l" '(evilnc-comment-or-uncomment-lines
+        "cl" '(evilnc-comment-or-uncomment-lines
             :which-key "toggle line")
-        "/p" '(evilnc-comment-or-uncomment-paragraphs
+        "cp" '(evilnc-comment-or-uncomment-paragraphs
             :which-key "toggle paragraph"))
 
     (general-define-key
@@ -99,9 +99,10 @@
         "f"  '(:ignore t :which-key "general")
         ;; good enough for most cases autoterminates
         "ff" '(helm-find-files :which-key "helm-find-file")
-        ;; easier to search big folders with this 
+        ;; easier to search big folders with this
         "ft" '(neotree-toggle :which-key "neotree-toggle")
         "fd" '(delete-frame :which-key "delete-frame")
+        "fc" '(calendar :which-key "calendar")
         "fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
@@ -112,8 +113,8 @@
         "gg" '(magit-status :which-key "status")
         "gu" '(git-gutter :which-key "git gutter")
         "gs" '(git-gutter:stage-hunk :which-key "stage-hunk")
-        "g[" '(git-gutter:next-hunk :which-key "next-hunk")
-        "g]" '(git-gutter:previous-hunk :which-key "previous-hunk")
+        "gn" '(git-gutter:next-hunk :which-key "next-hunk")
+        "gp" '(git-gutter:previous-hunk :which-key "previous-hunk")
         "gr" '(git-gutter:revert-hunk :which-key "revert-hunk"))
 
     (general-define-key
@@ -154,11 +155,15 @@
         "wk" '(evil-window-up :which-key "evil-window-up")
         "wl" '(evil-window-right :which-key "evil-window-right")
         "wh" '(evil-window-left :which-key "evil-window-left")
-
-        "wJ" '(evil-window-move-very-bottom :which-key "evil-window-move-very-bottom")
-        "wK" '(evil-window-move-very-top :which-key "evil-window-move-very-top")
-        "wL" '(evil-window-move-far-right :which-key "evil-window-move-far-right")
-        "wH" '(evil-window-move-far-left :which-key "evil-window-move-far-left"))
+        "wo" '(delete-other-windows :which-key "delete-other-windows")
+        "wJ" '(evil-window-move-very-bottom
+               :which-key "evil-window-move-very-bottom")
+        "wK" '(evil-window-move-very-top
+               :which-key "evil-window-move-very-top")
+        "wL" '(evil-window-move-far-right
+               :which-key "evil-window-move-far-right")
+        "wH" '(evil-window-move-far-left
+               :which-key "evil-window-move-far-left"))
 
 
     (general-define-key
