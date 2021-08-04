@@ -160,16 +160,16 @@
     ;; :defer 10
     )
 
-(use-package irony
-  :ensure t
-  :config
-  (irony-mode)
-  (add-hook 'c++-mode-hook 'irony-mode))
+;; (use-package irony
+;;   :ensure t
+;;   :config
+;;   (irony-mode)
+;;   (add-hook 'c++-mode-hook 'irony-mode))
 
-(use-package company-irony
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-irony))
+;; (use-package company-irony
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-irony))
 
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
