@@ -212,6 +212,7 @@
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(setq exec-path (append exec-path '("/homes/raghavanp/mystuff/bin")))
 
 ;; Scooby-Doo by Blazej Kozlowski
 ;;                                             :\

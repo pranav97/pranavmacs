@@ -132,7 +132,8 @@
         :keymaps 'override
         :prefix "SPC"
         "h"  '(:ignore t :which-key "helm-gtags")
-        "hf" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
+        "hf" '(ggtags-find-tag-dwim :which-key "ggtags-find-tag-dwim")
+        "hd" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
         "hr" '(helm-gtags-find-rtag :which-key "helm-gtags-find-rtag")
         "hk" '(helm-gtags-parse-file :which-key "helm-gtags-parse-file")
         "hp" '(helm-gtags-previous-history :which-key "helm-gtags-prev")
