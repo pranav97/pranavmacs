@@ -127,17 +127,58 @@
         "tt" '(hl-todo-insert :which-key "todo-insert")
         "to" '(hl-todo-occur :which-key "todo-occur"))
 
+;; (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+;; (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+;; (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+;; (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+;; (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+;; (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+;; (define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+;; (define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+;; (define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+;; (define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+;; (define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+;; (define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+;; (define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
+
+
     (general-define-key
         :states 'normal
         :keymaps 'override
         :prefix "SPC"
         "h"  '(:ignore t :which-key "helm-gtags")
-        "hf" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
-        "hr" '(helm-gtags-find-rtag :which-key "helm-gtags-find-rtag")
-        "hk" '(helm-gtags-parse-file :which-key "helm-gtags-parse-file")
-        "hp" '(helm-gtags-previous-history :which-key "helm-gtags-prev")
-        "hn" '(helm-gtags-next-history :which-key "helm-gtags-next")
-        "hs" '(helm-gtags-pop-stack :which-key "helm-gtags-pop"))
+        "ha" '(helm-gtags-tags-in-this-function
+               :which-key "helm-gtags-tags-in-this-function")
+        "hc" '(helm-gtags-create-tags
+               :which-key "helm-gtags-create-tags")
+        "hs" '(helm-gtags-select
+               :which-key "helm-gtags-select")
+        "hs" '(helm-gtags-dwim
+               :which-key "helm-gtags-dwim")
+        "hp" '(helm-gtags-pop-stack
+               :which-key "helm-gtags-pop-stack")
+        "h[" '(helm-gtags-previous-history
+               :which-key "helm-gtags-previous-history")
+        "h[" '(helm-gtags-next-history
+               :which-key "helm-gtags-next-history")
+        "hd" '(helm-gtags-find-tag :which-key "helm-gtags-find-tag")
+
+        "hg" '(:ignore t: which-key "ggtags")
+        "hgf" '(ggtags-find-file
+               :which-key "ggtags-find-file")
+        "hgc" '(ggtags-create-tags
+               :which-key "ggtags-create-tags")
+        "hgu" '(ggtags-update-tags
+               :which-key "ggtags-update-tags")
+        "hgp" '(pop-tag-mark
+               :which-key "pop-tag-mark")
+        "hgs" '(ggtags-find-other-symbol
+               :which-key "ggtags-find-other-symbol")
+        "hgh" '(ggtags-tag-history
+               :which-key "ggtags-tag-history")
+        "hgr" '(ggtags-find-reference
+               :which-key "ggtags-find-reference")
+        )
 
 
     (general-define-key
