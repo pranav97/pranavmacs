@@ -79,41 +79,40 @@
 (add-hook 'git-commit-mode-hook (lambda() (setq fill-column 80)))
     
 
-(use-package xcscope
-  :ensure t
-  :config
-  (message "DEBUG: xcscope loaded")
-  (cscope-setup)
-  )
+;; (use-package xcscope
+;;   :ensure t
+;;   :config
+;;   :commands cscope-setup
+;;   (message "DEBUG: xcscope loaded")
+;;   (cscope-setup))
 
 (load-file "~/.emacs.d/key_bindings.el")
 
-(use-package dts-mode
-  :ensure t
-  :config
-  (message "DEBUG: dts-mode loaded")
-  )
+;; (use-package dts-mode
+;;   :ensure t
+;;   :config
+;;   (message "DEBUG: dts-mode loaded"))
 
 
 (use-package magit
   ;; :defer 10
   :ensure t
+  :commands magit-status
   :config
   (message "DEBUG: magit mode loaded")
-  (auto-revert-mode)
-
-
-  )
+  (auto-revert-mode))
 
 ;; which key tells you what the next key combination can be in a emacs command
 (use-package which-key
   :ensure t
+  :defer 10
   :config
   (message "DEBUG: which key mode loaded")
   (which-key-mode)
   (which-key-setup-minibuffer))
 
 (use-package helm-config
+  :commands helm-find-files helm-Mx
   :config
   (message "DEBUG: helm config loaded")
   ;; helm configurations
@@ -122,6 +121,7 @@
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
+  :commands helm-gtags-dwim helm-gtags-create-tags helm-gtags-select helm-gtags-pop-stack helm-gtags-previous-history helm-gtags-find-tag
   :config
 
   (message "DEBUG: helm-gtags loaded")
@@ -130,9 +130,7 @@
       helm-gtags-ignore-case t
       helm-gtags-auto-update t
       helm-gtags-use-input-at-cursor t
-      helm-gtags-pulse-at-cursor t
-      helm-gtags-prefix-key "\C-cg"
-      helm-gtags-suggested-key-mapping t)
+      helm-gtags-pulse-at-cursor t)
 
   (add-hook 'dired-mode-hook 'helm-gtags-mode)
   (add-hook 'eshell-mode-hook 'helm-gtags-mode)
@@ -144,9 +142,9 @@
 ;; not lazy loaded, boo
 (use-package doom-modeline
   :ensure t
-  :init
-  (doom-modeline-mode 1)
+  :defer 10
   :config
+  (doom-modeline-mode 1)
   (message "DEBUG: doom-modeline loaded")
 
   )
@@ -154,11 +152,10 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :init
-  ;; rainbow delim
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :defer 10
   :config
-  (message "DEBUG: rainbow-delimiters loaded"))
+  (message "DEBUG: rainbow-delimiters loaded")
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
 
@@ -171,6 +168,7 @@
 
 (use-package winner
   :ensure t
+  :defer 10
   :config
   (message "DEBUG: winner loaded")
   (winner-mode))
@@ -179,8 +177,9 @@
 ;; neo tree specific keybindings
 (use-package neotree
     :ensure t
+    :commands neotree-toggle
     :config 
-    (message "DEBUG: winner loaded"))
+    (message "DEBUG: neotree loaded"))
 
 ;; (use-package irony
 ;;   :ensure t
@@ -196,6 +195,7 @@
 
 (use-package ggtags
   :ensure t
+  :commands ggtags-find-file ggtags-create-tags ggtags-update-tags ggtags-pop-tag-mark ggtags-find-other-symbol ggtags-tag-history ggtags-find-reference
   :config
   (message "DEBUG: ggtags loaded")
 (add-hook 'c-mode-common-hook
@@ -204,9 +204,6 @@
               (ggtags-mode 1)))))
 
 
-
-(require 'helm-gtags)
-;; Enable helm-gtags-mode
 
 
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")

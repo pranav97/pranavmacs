@@ -1,10 +1,10 @@
 ;; mostly unused emacs keybindings.
 
 ;; default find, mx, bookmarks and buffers list be gone
-(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "M-x")     #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-x b") #'helm-buffers-list)
+(global-set-key (kbd "C-x b")   #'helm-buffers-list)
 (global-set-key (kbd "C-x C-b") #'helm-buffers-list)
 
 
@@ -24,6 +24,7 @@
 (setq evil-want-integration t)
 (setq evil-want-keybinding nil)
   :config
+  (message "DEBUG: evil loaded")
   (evil-mode 1)
   ;; need that page up usig control key
   (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
