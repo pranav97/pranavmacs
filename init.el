@@ -82,14 +82,16 @@
 (use-package xcscope
   :ensure t
   :config
-  (cscope-setup))
+  (message "DEBUG: xcscope loaded")
+  (cscope-setup)
+  )
 
 (load-file "~/.emacs.d/key_bindings.el")
 
 (use-package dts-mode
   :ensure t
-  ;; :defer t
-
+  :config
+  (message "DEBUG: dts-mode loaded")
   )
 
 
@@ -97,6 +99,7 @@
   ;; :defer 10
   :ensure t
   :config
+  (message "DEBUG: magit mode loaded")
   (auto-revert-mode)
 
 
@@ -106,60 +109,78 @@
 (use-package which-key
   :ensure t
   :config
+  (message "DEBUG: which key mode loaded")
   (which-key-mode)
   (which-key-setup-minibuffer))
 
 (use-package helm-config
-  ;; :defer 5
   :config
+  (message "DEBUG: helm config loaded")
   ;; helm configurations
   (helm-mode 1))
 
 ;; turning on helm-gtags-mode
 (use-package helm-gtags
   :ensure t
-  ;; :defer 10
   :config
 
-  ;; helm gtags(add-hook 'c-mode-hook 'helm-gtags-mode)
+  (message "DEBUG: helm-gtags loaded")
+
+  (setq
+      helm-gtags-ignore-case t
+      helm-gtags-auto-update t
+      helm-gtags-use-input-at-cursor t
+      helm-gtags-pulse-at-cursor t
+      helm-gtags-prefix-key "\C-cg"
+      helm-gtags-suggested-key-mapping t)
+
+  (add-hook 'dired-mode-hook 'helm-gtags-mode)
+  (add-hook 'eshell-mode-hook 'helm-gtags-mode)
+  (add-hook 'c-mode-hook 'helm-gtags-mode)
   (add-hook 'c++-mode-hook 'helm-gtags-mode)
-  (add-hook 'asm-mode-hook 'helm-gtags-mode) )
+  (add-hook 'asm-mode-hook 'helm-gtags-mode))
 
 
 ;; not lazy loaded, boo
 (use-package doom-modeline
   :ensure t
   :init
-  (doom-modeline-mode 1))
+  (doom-modeline-mode 1)
+  :config
+  (message "DEBUG: doom-modeline loaded")
+
+  )
 
 
 (use-package rainbow-delimiters
   :ensure t
-  ;; :defer t
   :init
   ;; rainbow delim
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :config
+  (message "DEBUG: rainbow-delimiters loaded"))
 
 
 
 (use-package git-gutter
   :ensure t
   :config
+  (message "DEBUG: git-gutter loaded")
   (global-git-gutter-mode +1))
 
 
 (use-package winner
   :ensure t
-  ;; :defer 10
   :config
+  (message "DEBUG: winner loaded")
   (winner-mode))
 
 
 ;; neo tree specific keybindings
 (use-package neotree
     :ensure t
-    ;; :defer 10
-    )
+    :config 
+    (message "DEBUG: winner loaded"))
 
 ;; (use-package irony
 ;;   :ensure t
@@ -173,29 +194,19 @@
 ;;   (add-to-list 'company-backends 'company-irony))
 
 
-(require 'ggtags)
+(use-package ggtags
+  :ensure t
+  :config
+  (message "DEBUG: ggtags loaded")
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-              (ggtags-mode 1))))
+              (ggtags-mode 1)))))
 
 
-(setq
-    helm-gtags-ignore-case t
-    helm-gtags-auto-update t
-    helm-gtags-use-input-at-cursor t
-    helm-gtags-pulse-at-cursor t
-    helm-gtags-prefix-key "\C-cg"
-    helm-gtags-suggested-key-mapping t
- )
 
 (require 'helm-gtags)
 ;; Enable helm-gtags-mode
-(add-hook 'dired-mode-hook 'helm-gtags-mode)
-(add-hook 'eshell-mode-hook 'helm-gtags-mode)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -258,7 +269,7 @@
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(custom-enabled-themes '(doom-gruvbox))
  '(custom-safe-themes
-   '("ea5822c1b2fb8bb6194a7ee61af3fe2cc7e2c7bab272cbb498a0234984e1b2d9" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
+   '("7eea50883f10e5c6ad6f81e153c640b3a288cd8dc1d26e4696f7d40f754cc703" "ea5822c1b2fb8bb6194a7ee61af3fe2cc7e2c7bab272cbb498a0234984e1b2d9" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" default))
  '(fill-column 80)
  '(git-gutter:update-interval 0)
  '(helm-completion-style 'emacs)

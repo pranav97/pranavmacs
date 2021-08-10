@@ -39,6 +39,7 @@
   :after evil
   :ensure t
   :config
+  (message "DEBUG: evil-collection loaded")
   (evil-collection-init))
 
 ;; trying to get some normal keybindings with leader key space.
@@ -46,6 +47,7 @@
     :after evil
     :ensure t
     :config
+    (message "DEBUG: general loaded")
     (general-evil-setup t)
 
     (general-define-key
