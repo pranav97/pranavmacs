@@ -207,6 +207,7 @@
 
 
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(setq exec-path (append exec-path '("/homes/raghavanp/mystuff/bin")))
 
 ;; Scooby-Doo by Blazej Kozlowski
 ;;                                             :\

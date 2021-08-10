@@ -106,6 +106,8 @@
         "ft" '(neotree-toggle :which-key "neotree-toggle")
         "fd" '(delete-frame :which-key "delete-frame")
         "fc" '(calendar :which-key "calendar")
+        "fb" '(bookmark-set-no-overwrite :which-key "bookmark-set-no-overwrite")
+        "fo" '(list-bookmarks :which-key "list-bookmarks")
         "fs" '(save-buffer :which-key "save-buffer"))
 
     (general-define-key
